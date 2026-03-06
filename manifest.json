@@ -1,0 +1,27 @@
+{
+  "name": "Kinetic Wala – Learn Smart",
+  "short_name": "KineticWala",
+  "description": "Structured learning platform for Class 7-10 students. Science, Mathematics and Robotics.",
+  "start_url": "/Kineticwala-/",
+  "scope": "/Kineticwala-/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1E3A8A",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education"],
+  "lang": "en"
+}
