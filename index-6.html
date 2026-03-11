@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kinetic Wala – Learn Smart. Build Strong Foundations.</title>
+<!-- PWA -->
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#1E3A8A" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Kinetic Wala" />
+<link rel="apple-touch-icon" href="logo.png" />
+<!-- SEO -->
+<meta name="description" content="Kinetic Wala – Structured learning platform for Class 7-10 students. Science, Mathematics and Robotics learning." />
+<meta name="keywords" content="Kinetic Wala, Class 7, Class 8, Class 9, Class 10, Science, Maths, Robotics, Aabis Ahmed, free education, CBSE" />
+<meta name="author" content="Aabis Ahmed" />
+<meta name="robots" content="index, follow" />
+<!-- Open Graph (WhatsApp preview) -->
+<meta property="og:title" content="Kinetic Wala – Learn Smart. Build Strong Foundations." />
+<meta property="og:description" content="Structured learning for Class 7-10. Science, Maths, Robotics. Founded by Aabis Ahmed." />
+<meta property="og:image" content="logo.png" />
+<meta property="og:url" content="https://aabisahmed.github.io/Kineticwala-" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  /* ─── CSS Variables ─────────────────────────────── */
+  :root {
+    --blue-primary: #1E3A8A;
+    --blue-cta:     #2563EB;
+    --blue-hover:   #DBEAFE;
+    --blue-mid:     #3B82F6;
+    --blue-deep:    #1e40af;
+    --white:        #FFFFFF;
+    --gray-dark:    #1F2937;
+    --gray-mid:     #4B5563;
+    --gray-light:   #9CA3AF;
+    --bg-light:     #F3F4F6;
+    --bg-section:   #EFF6FF;
+    --shadow-sm:    0 2px 8px rgba(30,58,138,.08);
+    --shadow-md:    0 8px 32px rgba(30,58,138,.13);
+    --shadow-lg:    0 20px 60px rgba(30,58,138,.18);
+    --radius:       16px;
+    --radius-sm:    10px;
+    --transition:   0.28s cubic-bezier(.4,0,.2,1);
+  }
+
+  /* ─── Reset & Base ──────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--gray-dark);
+    background: var(--white);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  /* ─── Typography ────────────────────────────────── */
+  .display { font-family: 'Sora', sans-serif; font-weight: 800; }
+  h1,h2,h3,h4 { font-family: 'Sora', sans-serif; }
+
+  /* ─── Utility ───────────────────────────────────── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 96px 0; }
+  .section-alt { background: var(--bg-light); }
+  .section-blue { background: var(--bg-section); }
+  .tag {
+    display: inline-block;
+    background: var(--blue-hover);
+    color: var(--blue-primary);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 50px;
+    margin-bottom: 18px;
+  }
+  .section-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--blue-primary);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 1.1rem;
+    color: var(--gray-mid);
+    max-width: 600px;
+    margin-bottom: 56px;
+  }
+
+  /* ─── Buttons ───────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: .95rem;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+  }
+  .btn-primary {
+    background: var(--blue-cta);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(37,99,235,.35);
+  }
+  .btn-primary:hover {
+    background: var(--blue-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(37,99,235,.45);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--blue-primary);
+    border: 2px solid var(--blue-primary);
+  }
+  .btn-outline:hover {
+    background: var(--blue-hover);
+    transform: translateY(-2px);
+  }
+
+  /* ─── Navigation ────────────────────────────────── */
+  #navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(30,58,138,.08);
+    transition: box-shadow var(--transition);
+  }
+  #navbar.scrolled { box-shadow: var(--shadow-md); }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .nav-links a {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: .92rem;
+    color: var(--gray-mid);
+    transition: var(--transition);
+    position: relative;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--blue-primary);
+    background: var(--blue-hover);
+  }
+  .nav-cta {
+    background: var(--blue-cta) !important;
+    color: #fff !important;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600 !important;
+    padding: 9px 20px !important;
+  }
+  .nav-cta:hover { background: var(--blue-deep) !important; }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--blue-primary);
+    border-radius: 2px;
+    transition: var(--transition);
+  }
+
+  /* ─── Mobile Nav ────────────────────────────────── */
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    border-top: 1px solid var(--blue-hover);
+    padding: 16px 24px 24px;
+    gap: 4px;
+  }
+  .mobile-nav a {
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: 500;
+    color: var(--gray-dark);
+    transition: var(--transition);
+  }
+  .mobile-nav a:hover { background: var(--blue-hover); color: var(--blue-primary); }
+  .mobile-nav.open { display: flex; }
+
+  /* ─── Hero ──────────────────────────────────────── */
+  #hero {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 40%, #EFF6FF 100%);
+  }
+  .hero-bg-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: .12;
+    background: var(--blue-primary);
+  }
+  .hero-shape-1 { width: 600px; height: 600px; right: -180px; top: -180px; }
+  .hero-shape-2 { width: 300px; height: 300px; left: -80px; bottom: -80px; opacity: .07; }
+  .hero-shape-3 { width: 180px; height: 180px; right: 30%; top: 60%; opacity: .06; }
+  /* Grid pattern overlay */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(30,58,138,.12) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+  .hero-slogan {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Sora', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--blue-primary);
+    background: #fff;
+    border: 1px solid rgba(30,58,138,.15);
+    border-radius: 50px;
+    padding: 10px 22px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    animation: fadeDown .75s .05s ease both;
+    letter-spacing: .01em;
+  }
+  .slogan-quote {
+    font-size: 1.4rem;
+    color: #ea580c;
+    line-height: 1;
+    font-style: italic;
+  }
+    align-items: center;
+    gap: 8px;
+    background: rgba(37,99,235,.1);
+    border: 1px solid rgba(37,99,235,.2);
+    color: var(--blue-cta);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    margin-bottom: 28px;
+    animation: fadeDown .7s ease both;
+  }
+  .hero-badge .dot {
+    width: 7px; height: 7px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse 1.8s infinite;
+  }
+  .hero-title {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    color: var(--blue-primary);
+    line-height: 1.12;
+    margin-bottom: 24px;
+    animation: fadeUp .8s .1s ease both;
+  }
+  .hero-title .accent { color: var(--blue-cta); }
+  .hero-sub {
+    font-size: 1.12rem;
+    color: var(--gray-mid);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    animation: fadeUp .8s .2s ease both;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp .8s .3s ease both;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 60px;
+    animation: fadeUp .8s .4s ease both;
+    flex-wrap: wrap;
+  }
+  .hero-stat {}
+  .hero-stat-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--blue-primary);
+  }
+  .hero-stat-label { font-size: .85rem; color: var(--gray-mid); font-weight: 500; }
+  .hero-visual {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44%;
+    max-width: 520px;
+    pointer-events: none;
+    animation: floatUp .9s .2s ease both;
+  }
+  .hero-card-float {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card-float::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue-cta), #60a5fa);
+  }
+  .hcf-subjects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .hcf-subject {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-light);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+  }
+  .hcf-subject .icon { font-size: 1.4rem; }
+  .hcf-subject .name { font-size: .85rem; font-weight: 600; color: var(--gray-dark); }
+  .hcf-classes {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .hcf-class {
+    background: var(--blue-hover);
+    color: var(--blue-primary);
+    font-size: .8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 50px;
+  }
+
+  /* ─── Why KW Feature Cards ──────────────────────── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .feature-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(30,58,138,.07);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+    border: 2px solid var(--blue-cta);
+    opacity: 0;
+    transition: var(--transition);
+  }
+  .feature-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+  .feature-card:hover::after { opacity: 1; }
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--blue-hover);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  .feature-card h3 {
+    font-size: 1.1rem;
+    color: var(--blue-primary);
+    margin-bottom: 10px;
+  }
+  .feature-card p { font-size: .92rem; color: var(--gray-mid); line-height: 1.65; }
+
+  /* ─── About Founder ─────────────────────────────── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+  .about-img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    border-radius: 24px;
+    transition: transform .5s ease;
+  }
+  .about-img-placeholder:hover img { transform: scale(1.04); }
+  .about-img-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: linear-gradient(to top, rgba(30,58,138,.35) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .about-img-placeholder .founder-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+    text-shadow: 0 1px 4px rgba(0,0,0,.4);
+  }
+  .about-badge {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: var(--blue-cta);
+    color: #fff;
+    border-radius: 14px;
+    padding: 14px 20px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+  }
+  .about-badge .num { font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 800; }
+  .about-badge .lbl { font-size: .72rem; font-weight: 500; opacity: .9; }
+  .about-content h2 { margin-bottom: 20px; }
+  .about-content p { color: var(--gray-mid); margin-bottom: 18px; font-size: 1rem; line-height: 1.75; }
+  .about-points { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .about-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+    background: var(--bg-section);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--blue-cta);
+  }
+  .about-point-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+  .about-point-text { font-size: .9rem; color: var(--gray-dark); font-weight: 500; }
+
+  /* ─── Classes ───────────────────────────────────── */
+  .classes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+  .class-card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid rgba(30,58,138,.08);
+  }
+  .class-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+  .class-card-header {
+    background: var(--blue-primary);
+    padding: 32px 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .class-card-header::before {
+    content: '';
+    position: absolute;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    top: -40px; right: -30px;
+  }
+  .class-card-header::after {
+    content: '';
+    position: absolute;
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+    bottom: -20px; left: 60px;
+  }
+  .class-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255,255,255,.15);
+    position: absolute;
+    top: 8px; right: 20px;
+    line-height: 1;
+  }
+  .class-label {
+    color: rgba(255,255,255,.7);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .class-title {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: 'Sora', sans-serif;
+    position: relative;
+    z-index: 1;
+  }
+  .class-card-body { padding: 24px 28px; }
+  .class-subjects { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+  .class-subject {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: .88rem;
+    color: var(--gray-mid);
+  }
+  .class-subject .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--blue-cta);
+    flex-shrink: 0;
+  }
+  .class-cta {
+    width: 100%;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+  }
+
+  /* ─── Free Demo ─────────────────────────────────── */
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .demo-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(30,58,138,.07);
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+  }
+  .demo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--blue-cta);
+    background: var(--bg-section);
+  }
+  .demo-icon {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .demo-card h3 { font-size: 1rem; color: var(--blue-primary); margin-bottom: 10px; }
+  .demo-card p { font-size: .85rem; color: var(--gray-mid); line-height: 1.6; }
+  .demo-badge {
+    display: inline-block;
+    background: #dcfce7;
+    color: #16a34a;
+    font-size: .72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 50px;
+    margin-top: 12px;
+  }
+
+  /* ─── Robotics ──────────────────────────────────── */
+  .robotics-wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .robotics-content h2 { margin-bottom: 18px; }
+  .robotics-content p { color: var(--gray-mid); margin-bottom: 30px; font-size: 1rem; }
+  .robotics-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+  .robotics-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #fff;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  .robotics-item:hover { transform: translateX(6px); box-shadow: var(--shadow-md); }
+  .robotics-item-icon {
+    font-size: 1.4rem;
+    width: 44px; height: 44px;
+    background: var(--blue-hover);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .robotics-item-text h4 { font-size: .95rem; color: var(--blue-primary); margin-bottom: 4px; }
+  .robotics-item-text p { font-size: .83rem; color: var(--gray-mid); line-height: 1.5; }
+  .robotics-visual {
+    background: linear-gradient(145deg, var(--blue-primary), #1e40af);
+    border-radius: 24px;
+    padding: 48px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-lg);
+  }
+  .robotics-visual:hover { transform: translateY(-6px) scale(1.01); }
+  .robotics-visual::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.05);
+    top: -80px; right: -80px;
+  }
+  .robotics-emoji { font-size: 5rem; display: block; margin-bottom: 20px; }
+  .robotics-visual h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .robotics-visual p {
+    color: rgba(255,255,255,.75);
+    font-size: .9rem;
+    position: relative;
+    z-index: 1;
+  }
+  .robotics-visual .coming-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.25);
+    padding: 7px 20px;
+    border-radius: 50px;
+    font-size: .82rem;
+    font-weight: 600;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── Community ─────────────────────────────────── */
+  .community-section {
+    text-align: center;
+    padding: 96px 0;
+    background: linear-gradient(135deg, var(--blue-primary) 0%, #1e40af 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .community-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(255,255,255,.07), transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,.05), transparent 50%);
+  }
+  .community-section .tag { background: rgba(255,255,255,.15); color: #fff; }
+  .community-section h2 { color: #fff; }
+  .community-section .section-sub { color: rgba(255,255,255,.75); margin: 0 auto 48px; }
+  .social-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .social-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: var(--radius);
+    padding: 20px 28px;
+    color: #fff;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 200px;
+    justify-content: center;
+  }
+  .social-card:hover {
+    background: rgba(255,255,255,.18);
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,.4);
+  }
+  .social-card-icon { font-size: 1.8rem; }
+  .social-card-text { text-align: left; }
+  .social-card-text .platform { font-size: .8rem; opacity: .7; font-weight: 500; }
+  .social-card-text .handle { font-weight: 700; font-family: 'Sora', sans-serif; font-size: 1rem; }
+
+  /* ─── Contact ───────────────────────────────────── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .contact-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(30,58,138,.08);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: var(--transition);
+  }
+  .contact-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+  .contact-icon {
+    width: 52px; height: 52px;
+    background: var(--blue-hover);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  .contact-info .label { font-size: .78rem; font-weight: 600; color: var(--gray-light); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+  .contact-info .value { font-size: 1rem; font-weight: 600; color: var(--blue-primary); }
+
+  /* ─── Footer ────────────────────────────────────── */
+  footer {
+    background: var(--blue-primary);
+    color: rgba(255,255,255,.7);
+    text-align: center;
+    padding: 32px 24px;
+  }
+  footer .footer-logo { color: #fff; font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; }
+  footer .footer-copy { font-size: .85rem; }
+
+  /* ─── Auth Modal ────────────────────────────────── */
+  .auth-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,.7);
+    backdrop-filter: blur(8px);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+  }
+  .auth-overlay.show { display: flex; }
+  .auth-box {
+    background: #fff;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    animation: popIn .3s cubic-bezier(.34,1.56,.64,1) both;
+  }
+  .auth-header {
+    background: linear-gradient(135deg, var(--blue-primary), #1e40af);
+    padding: 32px 32px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .auth-header img { height: 40px; margin: 0 auto 12px; }
+  .auth-header h2 { color: #fff; font-size: 1.4rem; margin-bottom: 4px; }
+  .auth-header p { color: rgba(255,255,255,.7); font-size: .85rem; }
+  .auth-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--bg-light);
+  }
+  .auth-tab {
+    flex: 1;
+    padding: 14px;
+    text-align: center;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: .9rem;
+    cursor: pointer;
+    color: var(--gray-mid);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: var(--transition);
+  }
+  .auth-tab.active {
+    color: var(--blue-cta);
+    border-bottom-color: var(--blue-cta);
+  }
+  .auth-body { padding: 28px 32px 32px; }
+  .auth-form { display: none; flex-direction: column; gap: 16px; }
+  .auth-form.active { display: flex; }
+  .auth-input-wrap { display: flex; flex-direction: column; gap: 6px; }
+  .auth-input-wrap label {
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--gray-dark);
+    letter-spacing: .02em;
+  }
+  .auth-input {
+    padding: 12px 16px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: var(--radius-sm);
+    font-size: .95rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--gray-dark);
+    transition: var(--transition);
+    outline: none;
+    width: 100%;
+  }
+  .auth-input:focus {
+    border-color: var(--blue-cta);
+    box-shadow: 0 0 0 3px rgba(37,99,235,.1);
+  }
+  .auth-select {
+    padding: 12px 16px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: var(--radius-sm);
+    font-size: .95rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--gray-dark);
+    background: #fff;
+    outline: none;
+    width: 100%;
+    transition: var(--transition);
+  }
+  .auth-select:focus {
+    border-color: var(--blue-cta);
+    box-shadow: 0 0 0 3px rgba(37,99,235,.1);
+  }
+  .auth-btn {
+    width: 100%;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    font-size: 1rem;
+  }
+  .auth-divider {
+    text-align: center;
+    font-size: .82rem;
+    color: var(--gray-light);
+    margin: 4px 0;
+  }
+  .auth-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: rgba(255,255,255,.2);
+    border: none;
+    color: #fff;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: var(--transition);
+  }
+  .auth-close:hover { background: rgba(255,255,255,.35); }
+  .auth-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0 8px;
+    gap: 12px;
+  }
+  .auth-success.show { display: flex; }
+  .auth-success-icon { font-size: 3.5rem; }
+  .auth-success h3 { color: var(--blue-primary); font-size: 1.3rem; }
+  .auth-success p { color: var(--gray-mid); font-size: .9rem; }
+  .nav-login-btn {
+    background: transparent;
+    border: 2px solid var(--blue-primary);
+    color: var(--blue-primary);
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: .85rem;
+    padding: 8px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-login-btn:hover {
+    background: var(--blue-primary);
+    color: #fff;
+  }
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,.6);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 24px;
+    padding: 56px 48px;
+    text-align: center;
+    max-width: 440px;
+    width: 90%;
+    box-shadow: var(--shadow-lg);
+    animation: popIn .3s cubic-bezier(.34,1.56,.64,1) both;
+  }
+  .modal-icon { font-size: 4rem; margin-bottom: 16px; }
+  .modal-title { font-family: 'Sora', sans-serif; font-size: 1.8rem; color: var(--blue-primary); margin-bottom: 10px; }
+  .modal-sub { color: var(--gray-mid); margin-bottom: 32px; font-size: .95rem; }
+  .modal-close { padding: 12px 32px; }
+
+  /* ─── Scroll reveal ─────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity .65s ease, transform .65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ─── Keyframes ─────────────────────────────────── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(calc(-50% + 30px)); }
+    to   { opacity: 1; transform: translateY(-50%); }
+  }
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(.85); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: .7; }
+  }
+
+  /* ─── Responsive ────────────────────────────────── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .hero-visual { display: none; }
+    .hero-content { max-width: 100%; }
+    #hero { min-height: 80vh; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-img-wrap { max-width: 320px; margin: 0 auto; }
+    .robotics-wrap { grid-template-columns: 1fr; }
+    .robotics-visual { order: -1; }
+  }
+  @media (max-width: 600px) {
+    .section { padding: 64px 0; }
+    .hero-stats { gap: 24px; }
+    .social-card { min-width: 160px; }
+    .modal-box { padding: 40px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ NAVBAR -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">
+      <img src="logo.png" alt="Kinetic Wala" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#classes">Classes</a></li>
+      <li><a href="#demo">Free Demo</a></li>
+      <li><a href="#robotics">Robotics</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button class="nav-login-btn" onclick="showAuth()">🎓 Student Login</button></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <button id="installBtn" onclick="installApp()" class="btn btn-primary" style="display:none;padding:9px 18px;font-size:.85rem;gap:6px;">
+      📲 Install App
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#hero" onclick="closeMobile()">Home</a>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#classes" onclick="closeMobile()">Classes</a>
+    <a href="#demo" onclick="closeMobile()">Free Demo</a>
+    <a href="#robotics" onclick="closeMobile()">Robotics</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <button class="nav-login-btn" style="margin-top:8px;width:100%;justify-content:center;" onclick="closeMobile();showAuth()">🎓 Student Login</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section id="hero">
+  <div class="hero-bg-shapes">
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+    <div class="hero-shape hero-shape-3"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Now enrolling Class 7–10 students
+      </div>
+      <div class="hero-slogan">
+        <span class="slogan-quote">"</span>The stairs to the success<span class="slogan-quote">"</span>
+      </div>
+      <h1 class="hero-title display">
+        Learn Smart.<br/>Build <span class="accent">Strong</span><br/>Foundations.
+      </h1>
+      <p class="hero-sub">
+        Structured learning platform for Class 7–10 students.<br/>
+        Academic mastery, weekly tests, competency-based questions, formula books, and hands-on robotics learning.
+      </p>
+      <div class="hero-btns">
+        <a href="#classes" class="btn btn-primary">
+          🎯 Explore Classes
+        </a>
+        <a href="#community" class="btn btn-outline">
+          🌐 Join Community
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">7–10</div>
+          <div class="hero-stat-label">Classes Covered</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4+</div>
+          <div class="hero-stat-label">Subjects</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">∞</div>
+          <div class="hero-stat-label">Learning Resources</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Floating card -->
+  <div class="hero-visual">
+    <div class="hero-card-float">
+      <div style="text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--bg-light);">
+        <img src="logo.png" alt="Kinetic Wala" style="height:48px;width:auto;margin:0 auto;" />
+        <div style="font-size:.75rem;font-style:italic;color:#ea580c;font-weight:600;margin-top:6px;">"The stairs to the success"</div>
+      </div>
+      <div style="font-size:.78rem;font-weight:700;color:var(--gray-light);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px;">Subjects Available</div>
+      <div class="hcf-subjects">
+        <div class="hcf-subject"><span class="icon">⚛️</span><span class="name">Physics</span></div>
+        <div class="hcf-subject"><span class="icon">🧪</span><span class="name">Chemistry</span></div>
+        <div class="hcf-subject"><span class="icon">🌿</span><span class="name">Biology</span></div>
+        <div class="hcf-subject"><span class="icon">📐</span><span class="name">Mathematics</span></div>
+      </div>
+      <div style="font-size:.78rem;font-weight:700;color:var(--gray-light);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px;">Classes</div>
+      <div class="hcf-classes">
+        <span class="hcf-class">Class 7</span>
+        <span class="hcf-class">Class 8</span>
+        <span class="hcf-class">Class 9</span>
+        <span class="hcf-class">Class 10</span>
+      </div>
+      <div style="margin-top:20px;padding:14px;background:var(--bg-section);border-radius:var(--radius-sm);display:flex;align-items:center;gap:10px;">
+        <span style="font-size:1.2rem">🤖</span>
+        <span style="font-size:.85rem;font-weight:600;color:var(--blue-primary)">Robotics Program included!</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ WHY KW -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="tag">Why Choose Us</div>
+      <h2 class="section-title">Why Kinetic Wala?</h2>
+      <p class="section-sub">Everything you need to build a strong academic foundation — all in one place.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">🧠</div>
+        <h3>Concept-Based Learning</h3>
+        <p>We go beyond memorization. Every topic is broken down to its core concept so students understand the "why" behind every answer.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📋</div>
+        <h3>Structured Notes</h3>
+        <p>Carefully crafted notes organized chapter by chapter — clear, concise, and exam-ready for each class and subject.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">💡</div>
+        <h3>Logical Problem Solving</h3>
+        <p>Students learn to think step-by-step, building the analytical skills necessary for competitive exams and beyond.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📊</div>
+        <h3>Competency-Based Practice</h3>
+        <p>Practice questions crafted around new-age CBSE and board exam patterns that test real understanding, not rote answers.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🤖</div>
+        <h3>Robotics Innovation</h3>
+        <p>A hands-on program connecting academic science and math to real engineering projects and practical robotics skills.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📅</div>
+        <h3>Weekly Test System</h3>
+        <p>Consistent weekly assessments help track progress, reinforce learning, and prepare students for high-stakes exams.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ ABOUT -->
+<section id="about" class="section section-alt">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-placeholder">
+          <img src="founder.png" alt="Aabis Ahmed – Founder, Kinetic Wala" />
+          <div class="founder-name">Aabis Ahmed · Founder</div>
+        </div>
+        <div class="about-badge">
+          <div class="num">⚡</div>
+          <div class="lbl">Founder &<br/>Educator</div>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <div class="tag">Meet the Founder</div>
+        <h2 class="section-title">About Aabis Ahmed</h2>
+        <p>Kinetic Wala is founded by Aabis Ahmed — an educator passionate about building strong academic foundations in students from a young age.</p>
+        <p>The goal is to simplify complex academic topics and help students develop strong conceptual clarity in Science and Mathematics, making even the most difficult problems feel approachable and solvable.</p>
+        <p>The platform also introduces students to robotics and practical innovation, helping them connect academic knowledge with real-world engineering thinking and building the problem-solvers of tomorrow.</p>
+        <div class="about-points">
+          <div class="about-point">
+            <span class="about-point-icon">🎯</span>
+            <span class="about-point-text">Mission: Make quality education accessible and impactful for every student in Class 7–10.</span>
+          </div>
+          <div class="about-point">
+            <span class="about-point-icon">🔬</span>
+            <span class="about-point-text">Focus: Deep conceptual clarity in Science and Mathematics through structured, logical learning.</span>
+          </div>
+          <div class="about-point">
+            <span class="about-point-icon">⚙️</span>
+            <span class="about-point-text">Vision: Bridge academics and innovation through robotics and hands-on engineering learning.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CLASSES -->
+<section id="classes" class="section section-blue">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="tag">Academics</div>
+      <h2 class="section-title">Choose Your Class</h2>
+      <p class="section-sub" style="margin:0 auto 56px;">Structured academic programs designed for each class level — covering all core subjects with clarity and depth.</p>
+    </div>
+    <div class="classes-grid">
+      <!-- Class 7 -->
+      <div class="class-card reveal" onclick="openClassPage(7)">
+        <div class="class-card-header">
+          <div class="class-num">7</div>
+          <div class="class-label">Academic Program</div>
+          <div class="class-title">Class 7</div>
+        </div>
+        <div class="class-card-body">
+          <div class="class-subjects">
+            <div class="class-subject"><span class="dot"></span>Physics</div>
+            <div class="class-subject"><span class="dot"></span>Chemistry</div>
+            <div class="class-subject"><span class="dot"></span>Biology</div>
+            <div class="class-subject"><span class="dot"></span>Mathematics</div>
+          </div>
+          <p style="font-size:.83rem;color:var(--gray-mid);margin-bottom:20px;line-height:1.6;">Focus on building strong concepts and problem-solving skills at the foundational level.</p>
+          <button class="btn btn-primary class-cta">View Program</button>
+        </div>
+      </div>
+      <!-- Class 8 -->
+      <div class="class-card reveal" onclick="openClassPage(8)">
+        <div class="class-card-header" style="background:linear-gradient(135deg,#1e40af,#2563eb);">
+          <div class="class-num">8</div>
+          <div class="class-label">Academic Program</div>
+          <div class="class-title">Class 8</div>
+        </div>
+        <div class="class-card-body">
+          <div class="class-subjects">
+            <div class="class-subject"><span class="dot"></span>Physics</div>
+            <div class="class-subject"><span class="dot"></span>Chemistry</div>
+            <div class="class-subject"><span class="dot"></span>Biology</div>
+            <div class="class-subject"><span class="dot"></span>Mathematics</div>
+          </div>
+          <p style="font-size:.83rem;color:var(--gray-mid);margin-bottom:20px;line-height:1.6;">Focus on building strong concepts and problem-solving skills with increasing depth.</p>
+          <button class="btn btn-primary class-cta">View Program</button>
+        </div>
+      </div>
+      <!-- Class 9 -->
+      <div class="class-card reveal" onclick="openClassPage(9)">
+        <div class="class-card-header" style="background:linear-gradient(135deg,#1e3a8a,#1e40af);">
+          <div class="class-num">9</div>
+          <div class="class-label">Academic Program</div>
+          <div class="class-title">Class 9</div>
+        </div>
+        <div class="class-card-body">
+          <div class="class-subjects">
+            <div class="class-subject"><span class="dot"></span>Physics</div>
+            <div class="class-subject"><span class="dot"></span>Chemistry</div>
+            <div class="class-subject"><span class="dot"></span>Biology</div>
+            <div class="class-subject"><span class="dot"></span>Mathematics</div>
+          </div>
+          <p style="font-size:.83rem;color:var(--gray-mid);margin-bottom:20px;line-height:1.6;">Focus on building strong concepts and problem-solving skills for board exam readiness.</p>
+          <button class="btn btn-primary class-cta">View Program</button>
+        </div>
+      </div>
+      <!-- Class 10 -->
+      <div class="class-card reveal" onclick="openClassPage(10)">
+        <div class="class-card-header" style="background:linear-gradient(135deg,#1d4ed8,#1e3a8a);">
+          <div class="class-num">10</div>
+          <div class="class-label">Academic Program</div>
+          <div class="class-title">Class 10</div>
+        </div>
+        <div class="class-card-body">
+          <div class="class-subjects">
+            <div class="class-subject"><span class="dot"></span>Physics</div>
+            <div class="class-subject"><span class="dot"></span>Chemistry</div>
+            <div class="class-subject"><span class="dot"></span>Biology</div>
+            <div class="class-subject"><span class="dot"></span>Mathematics</div>
+          </div>
+          <p style="font-size:.83rem;color:var(--gray-mid);margin-bottom:20px;line-height:1.6;">Focus on building strong concepts and problem-solving skills for final board mastery.</p>
+          <button class="btn btn-primary class-cta">View Program</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CLASS PAGES OVERLAY -->
+<div id="classPageOverlay" style="display:none;position:fixed;inset:0;z-index:2000;background:#f8faff;overflow-y:auto;">
+
+  <!-- Class Page Navbar -->
+  <nav style="position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(30,58,138,.08);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px;">
+    <button onclick="closeClassPage()" style="display:flex;align-items:center;gap:6px;background:var(--blue-hover);color:var(--blue-primary);border:none;padding:9px 18px;border-radius:50px;font-family:'Sora',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;">← Back</button>
+    <div style="font-family:'Sora',sans-serif;font-weight:800;color:var(--blue-primary);font-size:1.1rem;">Kinetic Wala</div>
+    <div style="width:80px"></div>
+  </nav>
+
+  <!-- Class Hero -->
+  <div id="cpHero" style="background:linear-gradient(135deg,#1E3A8A 0%,#1e40af 100%);padding:40px 20px 50px;text-align:center;position:relative;overflow:hidden;">
+    <div id="cpHeroBigNum" style="font-family:'Sora',sans-serif;font-size:8rem;font-weight:800;color:rgba(255,255,255,.06);position:absolute;right:20px;top:-10px;line-height:1;pointer-events:none;"></div>
+    <div style="display:inline-block;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25);font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:12px;position:relative;z-index:1;">Academic Program</div>
+    <h1 id="cpHeroTitle" style="font-family:'Sora',sans-serif;font-size:2.4rem;font-weight:800;color:#fff;margin-bottom:10px;position:relative;z-index:1;"></h1>
+    <p style="color:rgba(255,255,255,.75);font-size:.95rem;position:relative;z-index:1;">Physics · Chemistry · Biology · Mathematics</p>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:20px;position:relative;z-index:1;">
+      <div style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 16px;border-radius:50px;font-size:.82rem;font-weight:600;">📝 Notes</div>
+      <div style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 16px;border-radius:50px;font-size:.82rem;font-weight:600;">🎬 Lectures</div>
+      <div style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 16px;border-radius:50px;font-size:.82rem;font-weight:600;">📋 DPP</div>
+      <div style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 16px;border-radius:50px;font-size:.82rem;font-weight:600;">📘 CBQ</div>
+    </div>
+  </div>
+
+  <!-- 4 Cards -->
+  <div id="cpMainCards" style="padding:28px 20px;display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:600px;margin:0 auto;">
+    <div onclick="cpShowSection('notes')" style="background:#fff;border-radius:16px;padding:24px 16px;box-shadow:0 4px 24px rgba(30,58,138,.12);border:1px solid rgba(30,58,138,.07);cursor:pointer;text-align:center;transition:all .25s;">
+      <div style="font-size:2.2rem;margin-bottom:12px;">📝</div>
+      <div style="font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;color:#1E3A8A;margin-bottom:6px;">Notes</div>
+      <div style="font-size:.8rem;color:#4B5563;">Chapter wise free notes</div>
+      <div style="display:inline-block;background:#dcfce7;color:#16a34a;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px;margin-top:10px;">FREE</div>
+    </div>
+    <div onclick="cpShowSection('lectures')" style="background:#fff;border-radius:16px;padding:24px 16px;box-shadow:0 4px 24px rgba(30,58,138,.12);border:1px solid rgba(30,58,138,.07);cursor:pointer;text-align:center;transition:all .25s;">
+      <div style="font-size:2.2rem;margin-bottom:12px;">🎬</div>
+      <div style="font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;color:#1E3A8A;margin-bottom:6px;">Lectures</div>
+      <div style="font-size:.8rem;color:#4B5563;">Video lectures by Aabis Ahmed</div>
+      <div style="display:inline-block;background:#fee2e2;color:#dc2626;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px;margin-top:10px;">YouTube</div>
+    </div>
+    <div onclick="cpShowSection('dpp')" style="background:#fff;border-radius:16px;padding:24px 16px;box-shadow:0 4px 24px rgba(30,58,138,.12);border:1px solid rgba(30,58,138,.07);cursor:pointer;text-align:center;transition:all .25s;">
+      <div style="font-size:2.2rem;margin-bottom:12px;">📋</div>
+      <div style="font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;color:#1E3A8A;margin-bottom:6px;">DPP</div>
+      <div style="font-size:.8rem;color:#4B5563;">Daily Practice Papers</div>
+      <div style="display:inline-block;background:#fef3c7;color:#d97706;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px;margin-top:10px;">Coming Soon</div>
+    </div>
+    <div onclick="cpShowSection('cbq')" style="background:#fff;border-radius:16px;padding:24px 16px;box-shadow:0 4px 24px rgba(30,58,138,.12);border:1px solid rgba(30,58,138,.07);cursor:pointer;text-align:center;transition:all .25s;">
+      <div style="font-size:2.2rem;margin-bottom:12px;">📘</div>
+      <div style="font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;color:#1E3A8A;margin-bottom:6px;">CBQ Book</div>
+      <div style="font-size:.8rem;color:#4B5563;">Competency Based Questions</div>
+      <div style="display:inline-block;background:#fee2e2;color:#dc2626;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px;margin-top:10px;">₹99 Only</div>
+    </div>
+  </div>
+
+  <!-- NOTES SECTION -->
+  <div id="cpNotesSection" style="display:none;padding:20px;max-width:600px;margin:0 auto;">
+    <button onclick="cpGoBack()" style="display:inline-flex;align-items:center;gap:6px;background:#DBEAFE;color:#1E3A8A;border:none;padding:9px 18px;border-radius:50px;font-family:'Sora',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;margin-bottom:20px;">← Back</button>
+    <div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;color:#1E3A8A;margin-bottom:20px;">📝 Notes</div>
+    <!-- Subject Tabs -->
+    <div style="display:flex;gap:8px;margin-bottom:24px;background:#fff;padding:6px;border-radius:10px;box-shadow:0 4px 24px rgba(30,58,138,.12);">
+      <button id="sciTab" onclick="cpSwitchSubject('science')" style="flex:1;padding:10px;border-radius:8px;font-family:'Sora',sans-serif;font-weight:600;font-size:.88rem;border:none;cursor:pointer;background:#2563EB;color:#fff;box-shadow:0 2px 10px rgba(37,99,235,.3);">🔬 Science</button>
+      <button id="mathTab" onclick="cpSwitchSubject('maths')" style="flex:1;padding:10px;border-radius:8px;font-family:'Sora',sans-serif;font-weight:600;font-size:.88rem;border:none;cursor:pointer;background:transparent;color:#4B5563;">🔢 Mathematics</button>
+    </div>
+    <div id="cpSciChapters" style="display:flex;flex-direction:column;gap:10px;"></div>
+    <div id="cpMathChapters" style="display:none;flex-direction:column;gap:10px;"></div>
+  </div>
+
+  <!-- LECTURES SECTION -->
+  <div id="cpLecturesSection" style="display:none;padding:20px;max-width:600px;margin:0 auto;">
+    <button onclick="cpGoBack()" style="display:inline-flex;align-items:center;gap:6px;background:#DBEAFE;color:#1E3A8A;border:none;padding:9px 18px;border-radius:50px;font-family:'Sora',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;margin-bottom:20px;">← Back</button>
+    <div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;color:#1E3A8A;margin-bottom:20px;">🎬 Lectures</div>
+    <div style="background:#fff;border-radius:16px;padding:32px 24px;box-shadow:0 12px 40px rgba(30,58,138,.18);text-align:center;border:1px solid rgba(30,58,138,.07);">
+      <div style="font-size:4rem;margin-bottom:16px;">▶️</div>
+      <h3 style="font-family:'Sora',sans-serif;font-size:1.3rem;color:#1E3A8A;margin-bottom:10px;">Kinetic Wala — YouTube Channel</h3>
+      <p style="color:#4B5563;font-size:.9rem;margin-bottom:24px;line-height:1.6;">Aabis Ahmed ke saath saare subjects seekho — bilkul free! Concepts simple tarike se samjhaye gaye hain.</p>
+      <a href="https://youtube.com/@kineticwala" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#dc2626;color:#fff;padding:13px 28px;border-radius:50px;font-family:'Sora',sans-serif;font-weight:700;font-size:.95rem;text-decoration:none;box-shadow:0 4px 16px rgba(220,38,38,.35);">▶ YouTube Pe Dekho</a>
+    </div>
+  </div>
+
+  <!-- DPP SECTION -->
+  <div id="cpDppSection" style="display:none;padding:20px;max-width:600px;margin:0 auto;">
+    <button onclick="cpGoBack()" style="display:inline-flex;align-items:center;gap:6px;background:#DBEAFE;color:#1E3A8A;border:none;padding:9px 18px;border-radius:50px;font-family:'Sora',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;margin-bottom:20px;">← Back</button>
+    <div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;color:#1E3A8A;margin-bottom:20px;">📋 Daily Practice Papers</div>
+    <div style="background:#fff;border-radius:16px;padding:48px 24px;box-shadow:0 12px 40px rgba(30,58,138,.18);text-align:center;">
+      <div style="font-size:4rem;margin-bottom:16px;">🚀</div>
+      <h3 style="font-family:'Sora',sans-serif;font-size:1.4rem;color:#1E3A8A;margin-bottom:10px;">Coming Soon!</h3>
+      <p style="color:#4B5563;font-size:.9rem;line-height:1.6;margin-bottom:20px;">DPP jald aa raha hai — Telegram join karo aur sabse pehle notify pao!</p>
+      <a href="https://t.me/kineticwala" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#2563EB;color:#fff;padding:12px 24px;border-radius:50px;font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;text-decoration:none;">✈️ Telegram Join Karo</a>
+    </div>
+  </div>
+
+  <!-- CBQ SECTION -->
+  <div id="cpCbqSection" style="display:none;padding:20px;max-width:600px;margin:0 auto;">
+    <button onclick="cpGoBack()" style="display:inline-flex;align-items:center;gap:6px;background:#DBEAFE;color:#1E3A8A;border:none;padding:9px 18px;border-radius:50px;font-family:'Sora',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;margin-bottom:20px;">← Back</button>
+    <div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;color:#1E3A8A;margin-bottom:20px;">📘 CBQ Book — ₹99</div>
+    <div style="background:#fff;border-radius:16px;box-shadow:0 12px 40px rgba(30,58,138,.18);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#1E3A8A,#1e40af);padding:28px 24px;text-align:center;">
+        <h3 style="font-family:'Sora',sans-serif;color:#fff;font-size:1.3rem;margin-bottom:6px;">Competency Based Questions</h3>
+        <p id="cpCbqSubtitle" style="color:rgba(255,255,255,.8);font-size:.88rem;"></p>
+        <div style="font-family:'Sora',sans-serif;font-size:2.5rem;font-weight:800;color:#fff;margin-top:10px;">₹99 <span style="font-size:1rem;opacity:.8;">only</span></div>
+      </div>
+      <div style="padding:24px;">
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#1F2937;"><span style="color:#16a34a;">✅</span> Science + Maths CBQ Questions</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#1F2937;"><span style="color:#16a34a;">✅</span> Chapter wise organized</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#1F2937;"><span style="color:#16a34a;">✅</span> Board exam pattern based</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#1F2937;"><span style="color:#16a34a;">✅</span> Detailed answers included</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#1F2937;"><span style="color:#16a34a;">✅</span> PDF format — instant delivery</div>
+        </div>
+        <button id="cpBuyBtn" onclick="cpShowCbqForm()" style="width:100%;padding:15px;background:#2563EB;color:#fff;border:none;border-radius:10px;font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 4px 16px rgba(37,99,235,.35);">💳 Buy Now — ₹99</button>
+      </div>
+      <div id="cpCbqForm" style="display:none;padding:0 24px 24px;">
+        <div style="background:#EFF6FF;border-radius:10px;padding:16px;margin-bottom:16px;border-left:3px solid #2563EB;font-size:.85rem;color:#1F2937;line-height:1.6;">
+          📝 Apna naam, class aur phone number likho — hum turant reply karenge aur CBQ book bhejenge!
+        </div>
+        <textarea id="cpCbqMsg" rows="4" placeholder="Apna naam, phone number aur payment details likho..." style="width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:.9rem;font-family:'DM Sans',sans-serif;resize:none;outline:none;margin-bottom:12px;"></textarea>
+        <button onclick="cpSendCbq()" style="width:100%;padding:13px;background:#2563EB;color:#fff;border:none;border-radius:10px;font-family:'Sora',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;">📨 Message Bhejo</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end classPageOverlay -->
+
+<!-- ═══════════════════════════════════════════════════════ FREE DEMO -->
+<section id="demo" class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="tag">Free Resources</div>
+      <h2 class="section-title">Free Demo Learning</h2>
+      <p class="section-sub">Students receive structured resources designed to strengthen concepts and make difficult questions easier to solve.</p>
+    </div>
+    <div class="demo-grid">
+      <div class="demo-card reveal" onclick="showModal()">
+        <span class="demo-icon">📝</span>
+        <h3>Free Demo Notes</h3>
+        <p>Get a taste of our structured, concept-rich notes before you commit to any program.</p>
+        <span class="demo-badge">Free Access</span>
+      </div>
+      <div class="demo-card reveal" onclick="showModal()">
+        <span class="demo-icon">🎬</span>
+        <h3>First 20 Students Free Lectures</h3>
+        <p>Limited offer — the first 20 students get access to full video lectures absolutely free.</p>
+        <span class="demo-badge">Limited Offer</span>
+      </div>
+      <div class="demo-card reveal" onclick="showModal()">
+        <span class="demo-icon">✅</span>
+        <h3>Weekly Tests</h3>
+        <p>Regular assessments to measure progress and keep learning on track throughout the term.</p>
+        <span class="demo-badge">Consistent Progress</span>
+      </div>
+      <div class="demo-card reveal" onclick="showModal()">
+        <span class="demo-icon">📘</span>
+        <h3>Competency Based Question Book</h3>
+        <p>Questions built for the new exam pattern — testing real understanding and application skills.</p>
+        <span class="demo-badge">Exam Ready</span>
+      </div>
+      <div class="demo-card reveal" onclick="showModal()">
+        <span class="demo-icon">📐</span>
+        <h3>Formula Book</h3>
+        <p>All key formulas and concepts organized in one handy reference guide for quick revision.</p>
+        <span class="demo-badge">Quick Revision</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ ROBOTICS -->
+<section id="robotics" class="section section-alt">
+  <div class="container">
+    <div class="robotics-wrap">
+      <div class="robotics-content reveal">
+        <div class="tag">Innovation Program</div>
+        <h2 class="section-title">Robotics Learning Program</h2>
+        <p>Where academic science meets real-world engineering. Students build, create, and innovate — not just memorize.</p>
+        <div class="robotics-list">
+          <div class="robotics-item">
+            <div class="robotics-item-icon">🤖</div>
+            <div class="robotics-item-text">
+              <h4>What is Robotics?</h4>
+              <p>Foundational understanding of robotics, automation, and how machines work in the real world.</p>
+            </div>
+          </div>
+          <div class="robotics-item">
+            <div class="robotics-item-icon">⚡</div>
+            <div class="robotics-item-text">
+              <h4>Practical Electronics Basics</h4>
+              <p>Learn circuits, sensors, and components through hands-on exercises and real experiments.</p>
+            </div>
+          </div>
+          <div class="robotics-item">
+            <div class="robotics-item-icon">🔧</div>
+            <div class="robotics-item-text">
+              <h4>Build Simple Robots</h4>
+              <p>Step-by-step guided projects where students actually assemble and program simple robotic systems.</p>
+            </div>
+          </div>
+          <div class="robotics-item">
+            <div class="robotics-item-icon">💡</div>
+            <div class="robotics-item-text">
+              <h4>Real Engineering Thinking</h4>
+              <p>Develop problem-solving frameworks used by engineers to design and build solutions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="robotics-visual" onclick="showModal()">
+          <span class="robotics-emoji">🤖</span>
+          <h3>Start Building Today</h3>
+          <p>Connect your academic knowledge with hands-on innovation. Project-based learning that makes science come alive.</p>
+          <span class="coming-tag">🚀 Launching Soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ COMMUNITY -->
+<section id="community" class="community-section">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="reveal">
+      <div class="tag">Community</div>
+      <h2 class="section-title" style="color:#fff;max-width:600px;margin:0 auto 16px;">Join Our Learning Community</h2>
+      <p class="section-sub">Connect with thousands of students, get study tips, free resources, and stay updated on new programs.</p>
+    </div>
+    <div class="social-cards reveal">
+      <a class="social-card" href="https://youtube.com/@kineticwala" target="_blank" rel="noopener">
+        <div class="social-card-icon">▶️</div>
+        <div class="social-card-text">
+          <div class="platform">Watch on</div>
+          <div class="handle">YouTube</div>
+        </div>
+      </a>
+      <a class="social-card" href="https://instagram.com/kineticwala" target="_blank" rel="noopener">
+        <div class="social-card-icon">📸</div>
+        <div class="social-card-text">
+          <div class="platform">Follow on</div>
+          <div class="handle">Instagram</div>
+        </div>
+      </a>
+      <a class="social-card" href="https://t.me/kineticwala" target="_blank" rel="noopener">
+        <div class="social-card-icon">✈️</div>
+        <div class="social-card-text">
+          <div class="platform">Join on</div>
+          <div class="handle">Telegram</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CONTACT -->
+<section id="contact" class="section">
+  <div class="container" style="text-align:center;">
+    <div class="reveal">
+      <div class="tag">Get in Touch</div>
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-sub" style="margin:0 auto 48px;">Student apna naam, number aur message likh ke bhej sakte hain — seedha Aabis Ahmed ke paas!</p>
+    </div>
+
+    <!-- Contact Info Cards -->
+    <div class="contact-grid reveal" style="margin-bottom:48px;">
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-info">
+          <div class="label">Email Us</div>
+          <div class="value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2647554e084453554f48435555111f131566414b474f4a0845494b">[email&#160;protected]</a></div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">✈️</div>
+        <div class="contact-info">
+          <div class="label">Telegram</div>
+          <div class="value">t.me/kineticwala</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Message Form -->
+    <div class="reveal" style="max-width:600px;margin:0 auto;">
+      <div style="background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-md);padding:40px 36px;border:1px solid rgba(30,58,138,.08);">
+        <div style="font-size:2rem;margin-bottom:12px;">📬</div>
+        <h3 style="font-size:1.4rem;color:var(--blue-primary);margin-bottom:8px;">Send a Message to Aabis Ahmed</h3>
+        <p style="font-size:.9rem;color:var(--gray-mid);margin-bottom:28px;">Form bharo — seedha email aayega! 📧</p>
+
+        <!-- FormSubmit.co — Free email service, no backend needed -->
+        <form id="contactForm" style="display:flex;flex-direction:column;gap:16px;">
+
+          <div style="display:flex;flex-direction:column;gap:6px;text-align:left;">
+            <label style="font-size:.82rem;font-weight:600;color:var(--gray-dark);">👤 Tumhara Naam</label>
+            <input type="text" id="cf_name" placeholder="Apna naam likho" required
+              style="padding:13px 16px;border:1.5px solid #e5e7eb;border-radius:var(--radius-sm);font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;transition:var(--transition);"
+              onfocus="this.style.borderColor='#2563EB';this.style.boxShadow='0 0 0 3px rgba(37,99,235,.1)'"
+              onblur="this.style.borderColor='#e5e7eb';this.style.boxShadow='none'" />
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:6px;text-align:left;">
+            <label style="font-size:.82rem;font-weight:600;color:var(--gray-dark);">📱 Phone Number</label>
+            <input type="tel" id="cf_phone" placeholder="Apna number likho" required
+              style="padding:13px 16px;border:1.5px solid #e5e7eb;border-radius:var(--radius-sm);font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;transition:var(--transition);"
+              onfocus="this.style.borderColor='#2563EB';this.style.boxShadow='0 0 0 3px rgba(37,99,235,.1)'"
+              onblur="this.style.borderColor='#e5e7eb';this.style.boxShadow='none'" />
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:6px;text-align:left;">
+            <label style="font-size:.82rem;font-weight:600;color:var(--gray-dark);">📚 Tumhari Class</label>
+            <select id="cf_class"
+              style="padding:13px 16px;border:1.5px solid #e5e7eb;border-radius:var(--radius-sm);font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;background:#fff;transition:var(--transition);"
+              onfocus="this.style.borderColor='#2563EB'"
+              onblur="this.style.borderColor='#e5e7eb'">
+              <option value="">-- Class select karo --</option>
+              <option value="Class 7">Class 7</option>
+              <option value="Class 8">Class 8</option>
+              <option value="Class 9">Class 9</option>
+              <option value="Class 10">Class 10</option>
+              <option value="Parent">Main Parent hun</option>
+            </select>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:6px;text-align:left;">
+            <label style="font-size:.82rem;font-weight:600;color:var(--gray-dark);">💬 Kya Kehna Hai?</label>
+            <textarea id="cf_message" placeholder="Apna sawaal ya message likho..." rows="4" required
+              style="padding:13px 16px;border:1.5px solid #e5e7eb;border-radius:var(--radius-sm);font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;resize:vertical;transition:var(--transition);"
+              onfocus="this.style.borderColor='#2563EB';this.style.boxShadow='0 0 0 3px rgba(37,99,235,.1)'"
+              onblur="this.style.borderColor='#e5e7eb';this.style.boxShadow='none'"></textarea>
+          </div>
+
+          <button type="button" onclick="submitContactForm()"
+            class="btn btn-primary"
+            style="width:100%;justify-content:center;padding:15px;font-size:1rem;border-radius:var(--radius-sm);">
+            📨 Message Bhejo Aabis Ko!
+          </button>
+
+        </form>
+
+        <!-- Success Message -->
+        <div id="formSuccess" style="display:none;flex-direction:column;align-items:center;gap:12px;padding:20px 0;">
+          <div style="font-size:3.5rem;">🎉</div>
+          <h3 style="color:var(--blue-primary);font-size:1.3rem;">Message Pohonch Gaya!</h3>
+          <p style="color:var(--gray-mid);font-size:.9rem;">Aabis Ahmed aapko jald hi reply karenge! Telegram pe bhi join karo.</p>
+          <a href="https://t.me/kineticwala" target="_blank" class="btn btn-primary" style="margin-top:8px;">✈️ Telegram Join Karo</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div style="display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+    <img src="logo.png" alt="Kinetic Wala" style="height:42px;width:auto;filter:brightness(0) invert(1);opacity:.85;" />
+  </div>
+  <div class="footer-slogan" style="font-style:italic;color:rgba(255,255,255,.6);font-size:.88rem;margin-bottom:8px;">"The stairs to the success"</div>
+  <div class="footer-copy">© 2026 Kinetic Wala | Official Platform. Founded by Aabis Ahmed.</div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════ AUTH MODAL -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-box">
+    <div class="auth-header">
+      <button class="auth-close" onclick="closeAuth()">✕</button>
+      <img src="logo.png" alt="Kinetic Wala" />
+      <h2>Welcome to Kinetic Wala</h2>
+      <p>"The stairs to the success"</p>
+    </div>
+    <div class="auth-tabs">
+      <div class="auth-tab active" onclick="switchTab('login')">🎓 Login</div>
+      <div class="auth-tab" onclick="switchTab('signup')">✨ Sign Up</div>
+    </div>
+    <div class="auth-body">
+
+      <!-- Login Form -->
+      <div class="auth-form active" id="loginForm">
+        <div class="auth-input-wrap">
+          <label>📧 Email Address</label>
+          <input type="email" class="auth-input" placeholder="Enter your email" id="loginEmail" />
+        </div>
+        <div class="auth-input-wrap">
+          <label>🔒 Password</label>
+          <input type="password" class="auth-input" placeholder="Enter your password" id="loginPass" />
+        </div>
+        <button class="btn btn-primary auth-btn" onclick="handleLogin()">Login to My Account</button>
+        <div class="auth-divider">Don't have an account? <span style="color:var(--blue-cta);cursor:pointer;font-weight:600;" onclick="switchTab('signup')">Sign Up Free</span></div>
+        <!-- Success -->
+        <div class="auth-success" id="loginSuccess">
+          <div class="auth-success-icon">🎉</div>
+          <h3>Welcome Back!</h3>
+          <p>Student portal coming soon! Stay tuned.</p>
+          <button class="btn btn-primary auth-btn" onclick="closeAuth()">Continue to Website</button>
+        </div>
+      </div>
+
+      <!-- Signup Form -->
+      <div class="auth-form" id="signupForm">
+        <div class="auth-input-wrap">
+          <label>👤 Full Name</label>
+          <input type="text" class="auth-input" placeholder="Enter your full name" id="signupName" />
+        </div>
+        <div class="auth-input-wrap">
+          <label>📧 Email Address</label>
+          <input type="email" class="auth-input" placeholder="Enter your email" id="signupEmail" />
+        </div>
+        <div class="auth-input-wrap">
+          <label>📚 Select Your Class</label>
+          <select class="auth-select" id="signupClass">
+            <option value="">-- Choose Class --</option>
+            <option value="7">Class 7</option>
+            <option value="8">Class 8</option>
+            <option value="9">Class 9</option>
+            <option value="10">Class 10</option>
+          </select>
+        </div>
+        <div class="auth-input-wrap">
+          <label>🔒 Create Password</label>
+          <input type="password" class="auth-input" placeholder="Create a strong password" id="signupPass" />
+        </div>
+        <button class="btn btn-primary auth-btn" onclick="handleSignup()">Create Free Account</button>
+        <div class="auth-divider">Already have an account? <span style="color:var(--blue-cta);cursor:pointer;font-weight:600;" onclick="switchTab('login')">Login</span></div>
+        <!-- Success -->
+        <div class="auth-success" id="signupSuccess">
+          <div class="auth-success-icon">🌟</div>
+          <h3>Account Created!</h3>
+          <p>Welcome to Kinetic Wala family! Student portal launching soon.</p>
+          <button class="btn btn-primary auth-btn" onclick="closeAuth()">Go to Website</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-icon">🚀</div>
+    <div class="modal-title">Coming Soon!</div>
+    <div class="modal-sub">We're working hard to bring this to you. Stay tuned for updates — join our community to be the first to know!</div>
+    <a href="#community" onclick="closeModalDirect()" class="btn btn-primary modal-close">Join Community</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ JS -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ─── Contact Form ─────────────────────────────────
+  async function submitContactForm() {
+    const name    = document.getElementById('cf_name').value.trim();
+    const phone   = document.getElementById('cf_phone').value.trim();
+    const cls     = document.getElementById('cf_class').value;
+    const message = document.getElementById('cf_message').value.trim();
+
+    if (!name || !phone || !message) {
+      alert('⚠️ Naam, number aur message — teeno bharo!');
+      return;
+    }
+
+    const btn = document.querySelector('#contactForm button');
+    btn.textContent = '⏳ Bhej raha hun...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/ash.business7953@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: '📬 New Message on Kinetic Wala Website!',
+          Name: name,
+          Phone: phone,
+          Class: cls || 'Not selected',
+          Message: message,
+          _template: 'table'
+        })
+      });
+      const data = await res.json();
+      if (data.success === 'true' || data.success === true) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'flex';
+      } else {
+        throw new Error('Failed');
+      }
+    } catch(e) {
+      btn.textContent = '📨 Message Bhejo Aabis Ko!';
+      btn.disabled = false;
+      alert('❌ Kuch problem hui! Telegram pe message karo: t.me/kineticwala');
+    }
+  }
+
+  // ─── Auth Functions ───────────────────────────────
+  function showAuth() {
+    document.getElementById('authOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeAuth() {
+    document.getElementById('authOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  function switchTab(tab) {
+    document.querySelectorAll('.auth-tab').forEach((t,i) => {
+      t.classList.toggle('active', (tab==='login' && i===0) || (tab==='signup' && i===1));
+    });
+    document.getElementById('loginForm').classList.toggle('active', tab==='login');
+    document.getElementById('signupForm').classList.toggle('active', tab==='signup');
+  }
+  function handleLogin() {
+    const email = document.getElementById('loginEmail').value;
+    const pass = document.getElementById('loginPass').value;
+    if (!email || !pass) { alert('Please fill all fields!'); return; }
+    document.getElementById('loginForm').querySelectorAll('.auth-input-wrap, .auth-btn, .auth-divider').forEach(el => el.style.display = 'none');
+    document.getElementById('loginSuccess').classList.add('show');
+  }
+  function handleSignup() {
+    const name = document.getElementById('signupName').value;
+    const email = document.getElementById('signupEmail').value;
+    const cls = document.getElementById('signupClass').value;
+    const pass = document.getElementById('signupPass').value;
+    if (!name || !email || !cls || !pass) { alert('Please fill all fields!'); return; }
+    document.getElementById('signupForm').querySelectorAll('.auth-input-wrap, .auth-btn, .auth-divider').forEach(el => el.style.display = 'none');
+    document.getElementById('signupSuccess').classList.add('show');
+  }
+  // Close auth on outside click
+  document.getElementById('authOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeAuth();
+  });
+
+  // ─── Navbar scroll ───────────────────────────────
+  const navbar = document.getElementById('navbar');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+    // Active link highlight
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // ─── Hamburger ───────────────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+  function closeMobile() { mobileNav.classList.remove('open'); }
+
+  // ─── Modal ───────────────────────────────────────
+  function showModal() {
+    document.getElementById('modalOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(e) {
+    if (e.target === document.getElementById('modalOverlay')) {
+      document.getElementById('modalOverlay').classList.remove('show');
+      document.body.style.overflow = '';
+    }
+  }
+  function closeModalDirect() {
+    document.getElementById('modalOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+
+  // ─── Contact Form ─────────────────────────────────
+  async function submitContactForm() {
+    const name    = document.getElementById('cf_name').value.trim();
+    const phone   = document.getElementById('cf_phone').value.trim();
+    const cls     = document.getElementById('cf_class').value;
+    const message = document.getElementById('cf_message').value.trim();
+    if (!name || !phone || !message) { alert('⚠️ Naam, number aur message — teeno bharo!'); return; }
+    const btn = document.querySelector('#contactForm button');
+    btn.textContent = '⏳ Bhej raha hun...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/ash.business7953@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: '📬 New Message on Kinetic Wala Website!',
+          Name: name, Phone: phone,
+          Class: cls || 'Not selected',
+          Message: message,
+          _template: 'table'
+        })
+      });
+      const data = await res.json();
+      if (data.success === 'true' || data.success === true) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'flex';
+      } else { throw new Error('Failed'); }
+    } catch(e) {
+      btn.textContent = '📨 Message Bhejo Aabis Ko!';
+      btn.disabled = false;
+      alert('❌ Kuch problem hui! Telegram pe message karo: t.me/kineticwala');
+    }
+  }
+
+  // ─── Auth Functions ───────────────────────────────
+  function showAuth() {
+    document.getElementById('authOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeAuth() {
+    document.getElementById('authOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  function switchTab(tab) {
+    document.querySelectorAll('.auth-tab').forEach((t,i) => {
+      t.classList.toggle('active', (tab==='login' && i===0) || (tab==='signup' && i===1));
+    });
+    document.getElementById('loginForm').classList.toggle('active', tab==='login');
+    document.getElementById('signupForm').classList.toggle('active', tab==='signup');
+  }
+  function handleLogin() {
+    const email = document.getElementById('loginEmail').value;
+    const pass = document.getElementById('loginPass').value;
+    if (!email || !pass) { alert('Please fill all fields!'); return; }
+    document.getElementById('loginForm').querySelectorAll('.auth-input-wrap, .auth-btn, .auth-divider').forEach(el => el.style.display = 'none');
+    document.getElementById('loginSuccess').classList.add('show');
+  }
+  function handleSignup() {
+    const name = document.getElementById('signupName').value;
+    const email = document.getElementById('signupEmail').value;
+    const cls = document.getElementById('signupClass').value;
+    const pass = document.getElementById('signupPass').value;
+    if (!name || !email || !cls || !pass) { alert('Please fill all fields!'); return; }
+    document.getElementById('signupForm').querySelectorAll('.auth-input-wrap, .auth-btn, .auth-divider').forEach(el => el.style.display = 'none');
+    document.getElementById('signupSuccess').classList.add('show');
+  }
+  document.getElementById('authOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeAuth();
+  });
+
+  // ─── Scroll Reveal ───────────────────────────────
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
+        const idx = siblings.indexOf(entry.target);
+        setTimeout(() => { entry.target.classList.add('visible'); }, idx * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ─── Class Pages Data ────────────────────────────
+  const classData = {
+    7: {
+      science: ['Nutrition in Plants','Nutrition in Animals','Fibre to Fabric','Heat','Acids, Bases and Salts','Physical and Chemical Changes','Weather, Climate and Adaptations of Animals to Climate','Winds, Storms and Cyclones','Soil','Respiration in Organisms','Transportation in Animals and Plants','Reproduction in Plants','Motion and Time','Electric Current and its Effects','Light','Water: A Precious Resource','Forests: Our Lifeline','Wastewater Story'],
+      maths: ['Integers','Fractions and Decimals','Data Handling','Simple Equations','Lines and Angles','The Triangle and its Properties','Congruence of Triangles','Comparing Quantities','Rational Numbers','Practical Geometry','Perimeter and Area','Algebraic Expressions','Exponents and Powers','Symmetry','Visualising Solid Shapes']
+    },
+    8: {
+      science: ['Crop Production and Management','Microorganisms: Friend and Foe','Synthetic Fibres and Plastics','Materials: Metals and Non-metals','Coal and Petroleum','Combustion and Flame','Conservation of Plants and Animals','Cell – Structure and Functions','Reproduction in Animals','Reaching the Age of Adolescence','Force and Pressure','Friction','Sound','Chemical Effects of Electric Current','Some Natural Phenomena','Light','Stars and the Solar System','Pollution of Air and Water'],
+      maths: ['Rational Numbers','Linear Equations in One Variable','Understanding Quadrilaterals','Practical Geometry','Data Handling','Squares and Square Roots','Cubes and Cube Roots','Comparing Quantities','Algebraic Expressions and Identities','Visualising Solid Shapes','Mensuration','Exponents and Powers','Direct and Inverse Proportions','Factorisation','Introduction to Graphs','Playing with Numbers']
+    },
+    9: {
+      science: ['Matter in Our Surroundings','Is Matter Around Us Pure','Atoms and Molecules','Structure of the Atom','The Fundamental Unit of Life','Tissues','Diversity in Living Organisms','Motion','Force and Laws of Motion','Gravitation','Work and Energy','Sound','Why Do We Fall Ill','Natural Resources','Improvement in Food Resources'],
+      maths: ['Number Systems','Polynomials','Coordinate Geometry','Linear Equations in Two Variables','Introduction to Euclid\'s Geometry','Lines and Angles','Triangles','Quadrilaterals','Areas of Parallelograms and Triangles','Circles','Constructions','Heron\'s Formula','Surface Areas and Volumes','Statistics','Probability']
+    },
+    10: {
+      science: ['Chemical Reactions and Equations','Acids, Bases and Salts','Metals and Non-metals','Carbon and its Compounds','Life Processes','Control and Coordination','How do Organisms Reproduce','Heredity and Evolution','Light – Reflection and Refraction','Human Eye and Colourful World','Electricity','Magnetic Effects of Electric Current','Our Environment'],
+      maths: ['Real Numbers','Polynomials','Pair of Linear Equations in Two Variables','Quadratic Equations','Arithmetic Progressions','Triangles','Coordinate Geometry','Introduction to Trigonometry','Some Applications of Trigonometry','Circles','Constructions','Areas Related to Circles','Surface Areas and Volumes','Statistics','Probability']
+    }
+  };
+
+  let currentClass = 7;
+  let currentSubject = 'science';
+
+  function openClassPage(cls) {
+    currentClass = cls;
+    document.getElementById('classPageOverlay').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    document.getElementById('cpHeroTitle').textContent = 'Class ' + cls;
+    document.getElementById('cpHeroBigNum').textContent = cls;
+    document.getElementById('cpCbqSubtitle').textContent = 'Class ' + cls + ' — Science & Mathematics';
+    // Reset to main cards
+    cpGoBack();
+    // Scroll to top
+    document.getElementById('classPageOverlay').scrollTop = 0;
+  }
+
+  function closeClassPage() {
+    document.getElementById('classPageOverlay').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function cpShowSection(section) {
+    document.getElementById('cpMainCards').style.display = 'none';
+    ['notes','lectures','dpp','cbq'].forEach(s => {
+      document.getElementById('cp' + s.charAt(0).toUpperCase() + s.slice(1) + 'Section').style.display = 'none';
+    });
+    document.getElementById('cp' + section.charAt(0).toUpperCase() + section.slice(1) + 'Section').style.display = 'block';
+    if (section === 'notes') cpBuildChapters();
+    document.getElementById('classPageOverlay').scrollTop = 0;
+  }
+
+  function cpGoBack() {
+    document.getElementById('cpMainCards').style.display = 'grid';
+    ['cpNotesSection','cpLecturesSection','cpDppSection','cpCbqSection'].forEach(id => {
+      document.getElementById(id).style.display = 'none';
+    });
+    document.getElementById('classPageOverlay').scrollTop = 0;
+  }
+
+  function cpBuildChapters() {
+    const data = classData[currentClass];
+    const sciEl = document.getElementById('cpSciChapters');
+    const mathEl = document.getElementById('cpMathChapters');
+    // Pass subject explicitly — 'science' or 'maths' — so notes lookup is always correct
+    sciEl.innerHTML = data.science.map((ch, i) => chapterItem(i+1, ch, 'science')).join('');
+    mathEl.innerHTML = data.maths.map((ch, i) => chapterItem(i+1, ch, 'maths')).join('');
+    currentSubject = 'science';
+    document.getElementById('sciTab').style.background = '#2563EB';
+    document.getElementById('sciTab').style.color = '#fff';
+    document.getElementById('mathTab').style.background = 'transparent';
+    document.getElementById('mathTab').style.color = '#4B5563';
+    sciEl.style.display = 'flex';
+    mathEl.style.display = 'none';
+  }
+
+  function chapterItem(num, name, subject) {
+    // subject is 'science' or 'maths' — passed directly into onclick
+    return `<div style="background:#fff;border-radius:10px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 24px rgba(30,58,138,.08);border:1px solid rgba(30,58,138,.06);margin-bottom:2px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:30px;height:30px;background:#DBEAFE;color:#1E3A8A;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:.82rem;flex-shrink:0;">${num}</div>
+        <div style="font-size:.88rem;font-weight:500;color:#1F2937;">${name}</div>
+      </div>
+      <button onclick="cpReadNotes('${name.replace(/'/g,"\\'")}')" style="background:#2563EB;color:#fff;border:none;padding:7px 14px;border-radius:50px;font-family:'Sora',sans-serif;font-weight:600;font-size:.75rem;cursor:pointer;white-space:nowrap;">Read Notes</button>
+    </div>`;
+  }
+
+  function cpSwitchSubject(subject) {
+    currentSubject = subject;
+    const sciEl = document.getElementById('cpSciChapters');
+    const mathEl = document.getElementById('cpMathChapters');
+    const sciTab = document.getElementById('sciTab');
+    const mathTab = document.getElementById('mathTab');
+    if (subject === 'science') {
+      sciEl.style.display = 'flex'; sciEl.style.flexDirection = 'column';
+      mathEl.style.display = 'none';
+      sciTab.style.background = '#2563EB'; sciTab.style.color = '#fff';
+      mathTab.style.background = 'transparent'; mathTab.style.color = '#4B5563';
+    } else {
+      mathEl.style.display = 'flex'; mathEl.style.flexDirection = 'column';
+      sciEl.style.display = 'none';
+      mathTab.style.background = '#2563EB'; mathTab.style.color = '#fff';
+      sciTab.style.background = 'transparent'; sciTab.style.color = '#4B5563';
+    }
+  }
+
+  // ─── Notes Content (key = exact chapter name) ───────────────────────────
+  const notesDB = {
+    // ── CLASS 7 SCIENCE ──
+    'Nutrition in Plants': ['<b>Nutrition:</b> Mode of taking food by an organism and its utilization by the body.','<b>Nutrients:</b> Components of food that provide nourishment to the body.','Green plants synthesise their own food by <b>photosynthesis</b>. They are <b>autotrophs</b>.','<b>Photosynthesis:</b> Green plants prepare food using CO₂, water and sunlight in presence of <b>chlorophyll</b>.','Chlorophyll and sunlight are essential requirements for photosynthesis.','Oxygen is produced during photosynthesis.','<b>Parasitic plants:</b> Organisms that live on other organisms — e.g., Cuscuta.','<b>Saprotrophic:</b> Organisms that obtain nutrition from dead matter — e.g., Mushrooms, fungi, bacteria.','<b>Insectivorous Plants:</b> Obtain nourishment partly from small insects — e.g., pitcher plant, venus fly trap.','<b>Symbiosis:</b> Two different individuals associate to fulfill their food requirements — e.g., Lichens (alga + fungus).'],
+    'Nutrition in Animals': ['<b>Herbivorous:</b> Animals that eat only plants — cow, sheep, goat, deer.','<b>Carnivorous:</b> Animals that kill other animals for food — tiger, lion, lizard.','<b>Omnivorous:</b> Animals that eat both plants and animals — bear, dog, human.','<b>Parasites:</b> Organisms that obtain food from other animals — tapeworm, roundworm.','Human digestive system: buccal cavity → oesophagus → stomach → small intestine → large intestine → anus.','Main digestive glands: salivary glands, liver, pancreas.','<b>Amoeba</b> ingests food through false feet (pseudopodia) into food vacuole.','Digestion of carbohydrates begins in buccal cavity; proteins start in stomach.','Water and salts absorbed in large intestine; undigested food expelled as faeces.','Ruminants like cows quickly swallow food, store in rumen, then chew cud later.'],
+    'Fibre to Fabric': ['<b>Fibres:</b> Long fine threads from plants and animals. Two types: <b>Animal fibres</b> and <b>Plant fibres</b>.','Animal fibres: <b>Silk</b> and <b>Wool</b>.','<b>Silk</b> comes from silkworms; <b>Wool</b> from sheep, goat and yak.','In India, mostly sheep are reared for wool.','Silkworms are caterpillars of silk moth that spin cocoons of silk fibres.','<b>Shearing:</b> Fleece of sheep removed with thin skin layer.','<b>Scouring:</b> Sheared hair cleaned and washed to remove grease and dirt.','Sorting separates hair of different textures; then carding, spinning into yarn.','<b>Wool Sources:</b> Sheep, yak (Tibet/Ladakh), Angora goat, camel, llama, alpaca.'],
+    'Heat': ['<b>Heat:</b> A form of energy that makes objects hot or cold.','<b>Temperature:</b> Measure of degree of hotness of an object.','Normal temperature of human body is <b>37°C</b>.','Clinical thermometer range: 35°C to 42°C. Lab thermometer range: −10°C to 110°C.','Heat transfer in solids by <b>conduction</b>; liquids/gases by <b>convection</b>; no medium needed for <b>radiation</b>.','Conductors allow heat to pass easily; Insulators do not.','<b>Sea Breeze:</b> Land heats faster during day → warm air rises → cool sea air replaces it.','<b>Land Breeze:</b> Sea cools slower at night → warm sea air rises → cool land air replaces it.','Dark-coloured objects absorb radiation better than light-coloured objects.','Woollen clothes keep us warm because wool is a poor conductor of heat.'],
+    'Acids, Bases and Salts': ['Three types of substances: <b>Acids</b>, <b>Bases</b> and <b>Indicators</b>.','<b>Acids:</b> Sour in taste, corrosive, good conductors of electricity.','Types: Mineral Acids, Organic Acids, Weak Acids, Strong Acids.','<b>Neutralisation:</b> Acid + Base → Salt + Water.','<b>Indigestion:</b> Neutralized by antacid like milk of magnesia.','<b>Ant sting:</b> Injects formic acid; neutralized by baking soda.','<b>Soil treatment:</b> Acidic soil treated with quicklime (calcium oxide).','Acid turns blue litmus <b>red</b>. Base turns red litmus <b>blue</b>.','<b>Indicators:</b> Litmus, Turmeric, China rose, Red cabbage.','<b>Bases:</b> Bitter in taste, soapy to touch. Strong Bases produce more hydroxide ions.'],
+    'Physical and Chemical Changes': ['<b>Physical Changes:</b> No new substances formed, may be reversible — dissolving sugar, tearing paper.','<b>Chemical Changes:</b> New substances formed, permanent and irreversible — burning candle, ripening of fruits.','<b>Rusting of Iron:</b> Reddish-brown substance forms on iron surface.','<b>Prevention of Rusting:</b> By Painting, Oiling, Chromium plating, Galvanizing, Alloying.','<b>Cooking of food:</b> Breakdown of carbohydrates, fats and proteins — decomposition reaction.','<b>Decay of Organic Substances:</b> Fungi and bacteria break down organic matter.','Pure substances can be obtained from solutions by <b>crystallisation</b>.'],
+    'Weather, Climate and Adaptations of Animals to Climate': ['<b>Weather:</b> Day-to-day condition of atmosphere influenced by humidity, temperature, wind speed.','<b>Humidity:</b> Amount of water vapour in atmosphere, measured by hygrometer.','<b>Climate:</b> Average weather conditions at a specific place over a longer period.','Factors affecting climate: sunshine, hilly/plain region, distance from sea, ocean currents, distance from equator.','<b>Adaptations:</b> Features and habits that help animals live in a habitat.','<b>Polar Regions:</b> Extreme climate; sun does not rise for 6 months.','<b>Tropical Rainforest:</b> Hot summers, plenty of rainfall; days and nights almost equal.','<b>Desert:</b> Extreme climate; less rainfall, large amount of sunlight.','<b>Migration:</b> Mass movement of animals from colder to warmer regions — e.g., Siberian crane.'],
+    'Winds, Storms and Cyclones': ['<b>Air:</b> Invisible gaseous substance — mixture of oxygen and nitrogen.','Air around us exerts pressure; expands on heating, contracts on cooling.','Warm air rises up; comparatively cooler air sinks towards earth\'s surface.','<b>Wind:</b> Moving air. Moves from high air pressure to low air pressure region.','<b>Wind Currents:</b> Generated due to uneven heating on earth.','<b>Thunderstorms:</b> Storm with thunder and lightning along with rain.','High-speed winds and air pressure difference can cause cyclones.','Cyclones can now be monitored with satellites and radars.'],
+    'Soil': ['Soil is the uppermost crust covering earth — mixture of rock particles and humus.','<b>Formation of Soil:</b> By weathering of parent rocks — physical, chemical or biological.','<b>Soil Profile:</b> Vertical section of soil from ground to parent rock. Layers called horizons.','<b>Sandy Soil:</b> 0.2–2.0 mm particles; very low water retention.','<b>Clayey Soil:</b> Less than 0.2 mm particles; excellent water retention.','<b>Loamy Soil:</b> Good mixture of sand, clay and humus; good water retention.','Percolation rate: highest in sandy soil, least in clayey soil.','Clay and loam suitable for wheat, gram, paddy; cotton grown in sandy loam.','Clayey soil used to make pots, toys and statues.'],
+    'Respiration in Organisms': ['Respiration releases energy from food. Oxygen breaks down glucose into CO₂ and water.','Breakdown of glucose occurs in cells — <b>cellular respiration</b>.','<b>External Respiration:</b> Oxygen taken in, CO₂ given out — also called breathing.','Respiration in Plants: through stomata (leaves), lenticels (stems).','Earthworm: through skin; Insect: through body surface; Fish: through gills; Frog: through moist skin.','<b>Aerobic Respiration:</b> Food + Oxygen → CO₂ + Water + Energy.','<b>Anaerobic Respiration:</b> Food broken down without oxygen, releases energy.','During heavy exercise, insufficient O₂ → anaerobic respiration occurs in muscle cells.'],
+    'Transportation in Animals and Plants': ['Blood distributes food and oxygen to cells; carries waste products for excretion.','Circulatory system: heart and blood vessels.','<b>Blood:</b> Plasma + RBC + WBC + Platelets. Red colour due to haemoglobin.','Human heart beats 70–80 times per minute — called heart rate.','<b>Arteries:</b> Carry blood from heart to all body parts.','<b>Veins:</b> Carry blood from body parts back to heart.','<b>Excretion:</b> Two kidneys, ureters, urinary bladder, urethra.','Water and mineral nutrients absorbed by roots; transported via <b>xylem</b>.','Food transported via <b>phloem</b> to various plant parts.','<b>Transpiration:</b> Water lost by plants as vapour through stomata.'],
+    'Reproduction in Plants': ['Two modes of reproduction: <b>Asexual</b> and <b>Sexual</b>.','Asexual methods: fragmentation, budding, spore formation, vegetative propagation.','<b>Sexual reproduction:</b> Fusion of male and female gametes.','<b>Flower:</b> Reproductive part of a plant. Can be unisexual or bisexual.','<b>Pollination:</b> Transfer of pollen grains from anther to stigma.','<b>Self-pollination:</b> Same flower; <b>Cross-pollination:</b> Different flower of same kind.','Pollination by wind, water and insects.','Fertilised egg = Zygote → develops into embryo.','<b>Seed dispersal</b> by wind, water and animals to prevent overcrowding.'],
+    'Motion and Time': ['<b>Motion:</b> Action or process of moving or being moved.','Distance moved by object in unit time = <b>Speed</b>. Basic unit: metre per second (m/s).','Speed = Total distance covered ÷ Total time taken.','<b>Uniform motion:</b> Object moving in straight line with constant speed.','<b>Non-Uniform motion:</b> Speed of object keeps changing.','Motion presented in pictorial form by <b>distance-time graphs</b>.','Distance-time graph for constant speed object is a <b>straight line</b>.','Periodic events used for measurement of time — pendulum used in clocks.'],
+    'Electric Current and its Effects': ['<b>Electric Current:</b> Flow of electrons through a conductor.','Electric components represented by symbols; circuit shown as circuit diagram.','<b>Heating Effect:</b> Wire gets hot when current flows — used in electric heaters.','<b>Fuse:</b> Safety device; melts when large current passes — prevents damage.','<b>MCB:</b> Miniature Circuit Breaker; automatically turns off when current exceeds safe limit.','<b>Magnetic Effect:</b> Current-carrying wire behaves like a magnet. Observed by Hans Christian Oersted.','<b>Electromagnet:</b> Coil of insulated wire around soft iron core.'],
+    'Light': ['<b>Light:</b> Natural agent that stimulates sight and makes things visible. Travels in straight lines.','Any polished/shining surface acts as a mirror.','<b>Real image:</b> Formed by light rays that actually pass through screen.','<b>Virtual image:</b> Cannot be obtained on screen; rays seem to pass through.','<b>Concave mirror:</b> Curves inward; forms real and inverted image.','<b>Convex mirror:</b> Curves outward; always forms virtual, erect and diminished image.','<b>Concave lens:</b> Thinner at centre — diverging lens; virtual, erect, diminished image.','<b>Convex lens:</b> Thicker at centre — converging lens; real and inverted image.','White light composed of <b>seven colours (VIBGYOR)</b>.','<b>Dispersion:</b> Splitting of white light into seven colours.'],
+    'Water: A Precious Resource': ['Water exists in three forms: solid (snow/glaciers), liquid (oceans/rivers), vapour (air).','<b>Surface water:</b> Sea, oceans, rivers, lakes, ponds.','<b>Ground water:</b> Water collected over non-porous rocks (aquifer) below soil.','<b>Water scarcity causes:</b> Population increase, more industries, agricultural irrigation, uneven rainfall, deforestation.','Water cycle maintains water but acute scarcity in many parts of globe.','Unnecessary use and overdrawing from groundwater should be avoided.','Plants wilt and dry up if not watered for a few days.'],
+    'Forests: Our Lifeline': ['Forest is large area of land with trees, bushes — system of plants, animals, micro-organisms.','Trees form uppermost layer, followed by shrubs; herbs form lowest layer.','Forests protect soil from erosion; influence climate, water cycle and air quality.','<b>Importance of Forests:</b> Provide timber, purify air, provide shelter, prevent soil erosion, control floods.','<b>Conservation steps:</b> No overgrazing, promote afforestation, protect wildlife, control forest fires.','<b>Food Chain:</b> Interdependence between producers and consumers in a chain.','<b>Food Web:</b> System of interdependent food chains.'],
+    'Wastewater Story': ['<b>Wastewater:</b> Black-brown water from showers, toilets, laundries — rich in lather and oil.','Wastewater causes water and soil pollution. Treated in <b>sewage treatment plant</b>.','<b>Sewage Treatment:</b> Aeration (air bubbled), Filtration (deep filter), Chlorination (chlorine added).','<b>WWTP Process:</b> Screens → grit/sand tank → settling tank → skimmer → sludge removal.','By-products of wastewater treatment: sludge and biogas.','Open drain system breeds flies, mosquitoes, disease-causing organisms.'],
+    // ── CLASS 7 MATHS ──
+    'Integers': ['Integers: all whole numbers and their negatives — ...−3, −2, −1, 0, 1, 2, 3...','Positive integers: right of zero on number line; negative integers: left of zero.','<b>Addition:</b> Same sign → add and keep sign. Different sign → subtract, keep sign of larger.','<b>Subtraction:</b> a − b = a + (−b). Adding the additive inverse.','<b>Multiplication:</b> (+×+) = +, (−×−) = +, (+×−) = −.','<b>Division:</b> Same sign → Positive; Different signs → Negative.','Additive inverse of a is −a. a + (−a) = 0.','Properties: Commutative, Associative, Distributive all hold for integers.'],
+    'Fractions and Decimals': ['<b>Proper fractions:</b> Numerator smaller than denominator. E.g., 3/5.','<b>Improper fractions:</b> Numerator ≥ denominator. E.g., 7/3.','<b>Mixed fractions:</b> Combination of whole number and proper fraction.','To divide fractions: multiply by the reciprocal of the divisor.','<b>Multiplication of Decimals:</b> Ignore decimal, multiply numbers, then insert decimal equal to total decimal places.','Multiply decimal by 10 → shift decimal right 1 place; by 100 → 2 places; by 1000 → 3 places.','<b>Division of Decimals:</b> Convert to fraction first or use standard division method.'],
+    'Data Handling': ['<b>Bar graph:</b> Visual representation of organized data with bars of uniform width.','Double bar graph helps compare two data sets.','<b>Mean (Arithmetic Mean):</b> Average value. Range = Highest − Lowest observation.','<b>Mode:</b> Observation that occurs most often in given data.','<b>Median:</b> Middle value when data arranged in ascending order.','Mean, Mode and Median are called <b>measures of central tendency</b>.','Probability: Likelihood of getting an outcome.'],
+    'Simple Equations': ['<b>Equation:</b> Condition of equality between two mathematical expressions. E.g., 2x − 3 = 5.','The value of variable for which both sides are equal is called the <b>solution</b>.','Adding/subtracting same number from both sides keeps equation balanced.','Multiplying/dividing both sides by same non-zero number keeps equation balanced.','<b>Transposing:</b> Moving a term from one side to other; sign changes. E.g., 2x + 8 = 24 → 2x = 24 − 8.','To solve: perform same operations on both sides until variable is isolated.'],
+    'Lines and Angles': ['<b>Complementary angles:</b> Sum = 90°. <b>Supplementary angles:</b> Sum = 180°.','<b>Adjacent angles:</b> Common vertex, common arm, no common interior points.','<b>Linear pair:</b> Adjacent angles whose non-common sides are opposite rays; always supplementary.','<b>Vertically opposite angles:</b> Equal in measure.','<b>Transversal:</b> Line intersecting two or more lines at distinct points.','Corresponding angles, alternate interior angles formed by transversal.','If parallel lines cut by transversal: all corresponding angles equal; alternate interior angles equal.'],
+    'The Triangle and its Properties': ['Triangle: Closed figure with 3 sides, 3 angles, 3 vertices.','<b>Equilateral:</b> All sides equal; all angles 60°. <b>Isosceles:</b> Two sides equal. <b>Scalene:</b> No sides equal.','<b>Acute-angled:</b> All angles < 90°. <b>Obtuse-angled:</b> One angle > 90°. <b>Right-angled:</b> One angle = 90°.','<b>Median:</b> Line segment from vertex to mid-point of opposite side. Three medians meet at <b>centroid</b>.','Centroid divides median in ratio <b>2:1</b>.','<b>Altitude:</b> Perpendicular from vertex to opposite side. Three altitudes meet at <b>orthocentre</b>.','Sum of all angles of triangle = <b>180°</b>.','<b>Pythagoras Property:</b> hypotenuse² = sum of squares of other two sides.'],
+    'Congruence of Triangles': ['<b>Congruent:</b> Objects of exactly same shape and size.','Two triangles congruent if all sides and all angles of one = corresponding sides and angles of other.','<b>SSS criterion:</b> Three sides of one triangle = three sides of other.','<b>SAS criterion:</b> Two sides and included angle equal.','<b>ASA criterion:</b> Two angles and included side equal.','<b>RHS criterion:</b> Hypotenuse and one side of right-angled triangle equal.','Congruence is denoted as △ABC ≅ △XYZ.'],
+    'Comparing Quantities': ['<b>Ratio:</b> Comparison of two quantities of same kind. E.g., 3:4.','<b>Percentage:</b> Fraction with denominator 100. E.g., 25% = 25/100.','To convert fraction to percent: multiply by 100.','<b>Profit:</b> SP > CP. Profit = SP − CP. Profit% = (Profit/CP) × 100.','<b>Loss:</b> CP > SP. Loss = CP − SP. Loss% = (Loss/CP) × 100.','<b>Simple Interest:</b> SI = (P × R × T)/100. Amount = P + SI.'],
+    'Rational Numbers': ['All numbers in form p/q where p, q are integers and q ≠ 0 are <b>rational numbers</b>.','Denominator of rational number can <b>never be zero</b>.','Positive rational numbers lie to right of 0; Negative to left on number line.','<b>Standard form:</b> numerator and denominator have no common factor other than 1.','To reduce to standard form: divide by their HCF.','<b>Equivalent Rational Numbers:</b> Multiply/divide both numerator and denominator by same non-zero integer.','To compare: convert to equivalent form with same denominator (LCM).','Reciprocals of each other multiply to give 1.'],
+    'Practical Geometry': ['Measurements needed to construct a triangle: (1) three sides, (2) two sides + included angle, (3) two angles + included side, (4) hypotenuse + one side.','<b>SSS Construction:</b> Draw base, arcs from both ends, join to intersection point.','<b>SAS Construction:</b> Draw base, construct angle, mark second side, join.','<b>ASA Construction:</b> Draw side, construct both angles, extend to meet.','<b>Right triangle:</b> Draw one side, construct 90°, mark hypotenuse with arc.','<b>Parallel lines:</b> Lines that never meet; constructed using alternate interior angle or corresponding angle property.'],
+    'Perimeter and Area': ['<b>Perimeter of triangle:</b> Sum of all three sides.','<b>Area of triangle:</b> ½ × base × height.','<b>Rectangle:</b> Perimeter = 2(length + breadth). Area = length × breadth.','<b>Square:</b> Perimeter = 4 × side. Area = side².','<b>Parallelogram:</b> Area = base × height.','<b>Circle:</b> Circumference = 2πr. Area = πr². π ≈ 3.14.'],
+    'Algebraic Expressions': ['<b>Variable:</b> Unknown quantity represented by a letter (x, y, n).','<b>Constant:</b> Fixed value.','<b>Algebraic Expression:</b> Combination of terms connected by +/−. E.g., 3x + 4y − 5.','<b>Monomial:</b> One term. <b>Binomial:</b> Two terms. <b>Trinomial:</b> Three terms.','<b>Like terms:</b> Same variable and power. Can be added/subtracted.','<b>Unlike terms:</b> Different variables or powers. Cannot be combined.'],
+    'Exponents and Powers': ['<b>Exponent/Power:</b> aᵐ means a multiplied by itself m times. a is base, m is exponent.','Numbers raised to power 2 = <b>square numbers</b>; power 3 = <b>cube numbers</b>.','aᵐ × aⁿ = aᵐ⁺ⁿ (same base multiply → add powers).','aᵐ ÷ aⁿ = aᵐ⁻ⁿ (same base divide → subtract powers).','(aᵐ)ⁿ = aᵐⁿ (power of a power → multiply).','aᵐ × bᵐ = (ab)ᵐ (same power, different base).','a⁰ = 1 for any non-zero integer a.','Numbers expressed as decimal × power of 10 = <b>standard form</b>.'],
+    'Symmetry': ['<b>Line Symmetry:</b> Figure divided into two identical halves by line of symmetry.','For a line segment: perpendicular bisector is line of symmetry.','Equilateral triangle: 3 lines; Square: 4 lines; Rectangle: 2 lines; Regular polygon of n sides: n lines.','<b>Rotational Symmetry:</b> Object looks same after rotation about fixed point.','<b>Order of rotational symmetry:</b> Number of times shape appears same during 360° rotation.','Square: order 4 (90°). Equilateral triangle: order 3 (120°). Circle: infinite order.'],
+    'Visualising Solid Shapes': ['2D figures: only length and breadth, lie in single plane.','3D figures: length, breadth and height; do not lie entirely on a plane.','<b>Faces:</b> Flat surfaces. <b>Edges:</b> Line segments forming skeleton. <b>Vertices:</b> Points where edges meet.','<b>Net:</b> 2D skeleton outline that when folded gives 3D shape.','<b>Oblique sketches:</b> Drawn on squared paper; approximate lengths.','<b>Isometric sketches:</b> Drawn on dotted/isometric sheets; exact measurements.','Solid viewed from front, side and top are three most common views.','Cross-section obtained by cutting or slicing a solid.'],
+
+    // ═══════════════════════════════════════════
+    // CLASS 8 SCIENCE
+    // ═══════════════════════════════════════════
+    'Crop Production and Management': ['<b>Agriculture:</b> The practice of cultivating soil, growing crops and rearing animals for food and other purposes.','<b>Kharif crops:</b> Sown in rainy season (June–September). E.g., paddy, maize, soybean, groundnut, cotton.','<b>Rabi crops:</b> Sown in winter season (October–March). E.g., wheat, gram, pea, mustard, linseed.','<b>Basic practices of crop production:</b> Preparation of soil, sowing, adding manure and fertilisers, irrigation, protecting from weeds, harvesting, storage.','<b>Ploughing:</b> Tilling or loosening the soil before sowing. Done using a plough.','<b>Sowing:</b> Process of putting seeds into the soil. Seed drill used for uniform sowing.','<b>Manure:</b> Natural organic substance obtained from decomposition of plant and animal wastes.','<b>Fertiliser:</b> Chemical substance that provides nutrients to plants — e.g., urea, NPK.','<b>Irrigation:</b> Supply of water to crops at regular intervals. Sources: wells, ponds, rivers, canals.','<b>Weeding:</b> Removal of unwanted plants (weeds) that compete with crops.','<b>Harvesting:</b> Cutting of crop after it is mature. Done manually or by harvester machine.','<b>Storage:</b> Crops stored in silos or gunny bags. Dried before storage to prevent spoilage.'],
+    'Microorganisms: Friend and Foe': ['<b>Microorganisms:</b> Organisms too small to be seen with naked eye — bacteria, fungi, protozoa, algae, viruses.','Microorganisms are found everywhere — in air, water, soil, inside our bodies.','<b>Useful microorganisms:</b> Making curd, bread, alcohol, vinegar; used in medicines (antibiotics like penicillin); fixing nitrogen in soil.','<b>Harmful microorganisms:</b> Cause diseases in humans, animals and plants; spoil food.','<b>Pathogens:</b> Disease-causing microorganisms. Diseases spread through air, water, direct contact, animals.','<b>Antibiotics:</b> Medicines that kill or stop growth of bacteria. E.g., Penicillin, streptomycin.','<b>Vaccine:</b> Dead or weakened microorganisms injected to produce immunity.','<b>Nitrogen fixation:</b> Conversion of atmospheric nitrogen into nitrates by bacteria (Rhizobium in root nodules of legumes).','<b>Fermentation:</b> Breaking down of sugars by yeast into alcohol and CO₂. Used in making bread, beer.','Food preservation methods: pasteurisation, salt, sugar, oil, vinegar, cold storage, vacuum packing.'],
+    'Synthetic Fibres and Plastics': ['<b>Synthetic fibres:</b> Man-made fibres prepared from chemical substances — nylon, rayon, polyester, acrylic.','<b>Rayon:</b> Made from wood pulp (cellulose); also called artificial silk.','<b>Nylon:</b> First fully synthetic fibre; strong, elastic, light, lustrous. Used in toothbrush bristles, parachutes.','<b>Polyester:</b> Made from repeating units of ester; does not wrinkle easily. Used in clothes, bottles.','<b>Acrylic:</b> Synthetic wool; used in sweaters and blankets.','<b>Plastic:</b> Synthetic material made from polymers. Two types: thermoplastics and thermosetting plastics.','<b>Thermoplastics:</b> Can be remoulded on heating — polythene, PVC.','<b>Thermosetting plastics:</b> Cannot be remoulded once set — bakelite, melamine.','<b>4R principle:</b> Reduce, Reuse, Recycle, Recover.','Synthetic fibres are durable, less expensive, readily available but non-biodegradable — cause pollution.'],
+    'Materials: Metals and Non-metals': ['<b>Metals:</b> Hard, lustrous, malleable, ductile, good conductors of heat and electricity. E.g., iron, copper, gold, silver.','<b>Non-metals:</b> Not lustrous, brittle, poor conductors. E.g., sulphur, carbon, oxygen, nitrogen.','<b>Malleability:</b> Property of metals to be beaten into thin sheets.','<b>Ductility:</b> Property of metals to be drawn into thin wires.','<b>Sonorous:</b> Metals produce ringing sound when struck.','<b>Reactivity series:</b> Order of metals from most reactive to least reactive — Na > Mg > Al > Zn > Fe > Pb > Cu > Ag > Au.','<b>Displacement reaction:</b> More reactive metal displaces less reactive metal from its salt solution.','<b>Corrosion:</b> Slow process of metal getting damaged by reacting with air, moisture — e.g., rusting of iron.','<b>Galvanisation:</b> Coating iron with zinc to prevent rusting.','Non-metals like oxygen, nitrogen are essential for life; carbon exists as diamond (hardest) and graphite.'],
+    'Coal and Petroleum': ['<b>Fossil fuels:</b> Coal, petroleum and natural gas — formed from remains of dead organisms over millions of years.','<b>Coal:</b> Formed from remains of forests buried underground millions of years ago (carbonisation).','<b>Coke:</b> Almost pure carbon; used in making steel and extracting metals.','<b>Coal tar:</b> Black thick liquid; used to make dyes, drugs, explosives, perfumes, plastics, paints.','<b>Coal gas:</b> Used as fuel and in illumination.','<b>Petroleum:</b> Dark oily liquid found below earth\'s surface between rocks.','<b>Refining of petroleum:</b> Process of separating petroleum into fractions (petrol, diesel, kerosene, LPG etc.) by distillation.','<b>Natural gas:</b> Mainly methane; stored and transported as CNG (Compressed Natural Gas).','Fossil fuels are non-renewable (exhaustible) resources — will be completely used up.','We should use fossil fuels wisely and shift to renewable energy like solar, wind.'],
+    'Combustion and Flame': ['<b>Combustion:</b> Chemical process in which substance reacts with oxygen to give heat and light.','<b>Fuel:</b> Substance that undergoes combustion to produce energy. E.g., wood, coal, LPG, petrol.','<b>Ignition temperature:</b> Minimum temperature at which substance catches fire.','<b>Inflammable substances:</b> Very low ignition temperature — petrol, alcohol, LPG.','<b>Types of combustion:</b> Rapid combustion (fast, produces heat and light), Spontaneous combustion (without apparent cause), Explosion (sudden rapid reaction).','<b>Flame:</b> Region where combustion of gaseous matter takes place. Three zones: dark inner zone, middle luminous zone, outer non-luminous zone.','<b>Calorific value:</b> Amount of heat energy produced on complete combustion of 1 kg of fuel.','<b>Fire extinguisher:</b> Works by removing one of three elements: fuel, heat or oxygen.','Burning of fuels releases CO₂ — causes global warming and acid rain.','<b>Ideal fuel:</b> High calorific value, no pollution, easily available, cheap, safe to store.'],
+    'Conservation of Plants and Animals': ['<b>Deforestation:</b> Clearing of forests for agriculture, housing, industries etc.','<b>Consequences of deforestation:</b> Loss of biodiversity, soil erosion, desertification, climate change, floods.','<b>Reforestation:</b> Restoring destroyed forests by planting new trees.','<b>Biosphere:</b> Part of earth where living organisms exist.','<b>Biodiversity:</b> Wide variety of living organisms in an area.','<b>Wildlife sanctuary:</b> Area where animals are protected and can move freely.','<b>National park:</b> Area reserved for conservation of wildlife — no human activity allowed.','<b>Biosphere reserve:</b> Area for conservation of biodiversity and associated life forms.','<b>Endangered species:</b> Species with very few individuals remaining — at risk of extinction.','<b>Endemic species:</b> Species found only in a particular area.','<b>Red Data Book:</b> Book that maintains a record of all endangered plants and animals.','<b>Migration:</b> Seasonal movement of animals from one region to another for food and breeding.'],
+    'Cell – Structure and Functions': ['<b>Cell:</b> Basic structural and functional unit of all living organisms. Discovered by Robert Hooke in 1665.','<b>Unicellular organisms:</b> Made of single cell — amoeba, paramecium, bacteria.','<b>Multicellular organisms:</b> Made of many cells — plants, animals, humans.','<b>Cell membrane:</b> Thin flexible covering that allows selective entry and exit of materials.','<b>Cell wall:</b> Rigid outer covering found only in plant cells; made of cellulose.','<b>Nucleus:</b> Control centre of cell; contains chromosomes with DNA. Covered by nuclear membrane.','<b>Cytoplasm:</b> Fluid inside cell membrane (outside nucleus); contains organelles.','<b>Mitochondria:</b> Powerhouse of cell; produces energy through cellular respiration.','<b>Chloroplast:</b> Found only in plant cells; contains chlorophyll; performs photosynthesis.','<b>Vacuole:</b> Storage sac in cell. Plant cells have large central vacuole; animal cells have small vacuoles.','<b>Chromosomes:</b> Thread-like structures in nucleus; carry genes (DNA) that determine heredity.'],
+    'Reproduction in Animals': ['<b>Reproduction:</b> Process by which organisms produce offspring of their own kind.','Two types: <b>Sexual reproduction</b> (involves two parents, fusion of gametes) and <b>Asexual reproduction</b> (involves one parent).','<b>Fertilisation:</b> Fusion of male gamete (sperm) and female gamete (egg/ovum) to form zygote.','<b>Internal fertilisation:</b> Fertilisation inside female body — humans, dogs, cows.','<b>External fertilisation:</b> Fertilisation outside female body — frogs, fish.','<b>Zygote:</b> Single cell formed after fertilisation; develops into embryo.','<b>Viviparous:</b> Animals that give birth to young ones — humans, dogs, cats.','<b>Oviparous:</b> Animals that lay eggs — frogs, birds, lizards.','<b>Metamorphosis:</b> Transformation from larva to adult — frog (tadpole → frog), butterfly (larva → pupa → butterfly).','<b>Asexual reproduction methods:</b> Binary fission (Amoeba), Budding (Hydra), Regeneration (Planaria).'],
+    'Reaching the Age of Adolescence': ['<b>Adolescence:</b> Period of life when body undergoes major changes — usually 10 to 19 years.','<b>Puberty:</b> Stage when reproductive organs begin to mature.','<b>Changes at puberty in boys:</b> Voice becomes hoarse, facial hair, increased height, reproductive organs develop.','<b>Changes at puberty in girls:</b> Breasts develop, menstruation begins, increased height, reproductive organs mature.','<b>Menstruation:</b> Monthly shedding of uterine lining when egg is not fertilised. Cycle is 28–30 days.','<b>Hormones:</b> Chemical substances secreted by endocrine glands directly into blood.','<b>Testosterone:</b> Male hormone produced by testes; controls development of male characteristics.','<b>Oestrogen:</b> Female hormone produced by ovaries; controls development of female characteristics.','<b>Pituitary gland:</b> Master gland; controls other endocrine glands.','Personal hygiene, balanced diet, exercise and avoiding drugs are important during adolescence.'],
+    'Force and Pressure': ['<b>Force:</b> A push or pull on an object. SI unit: Newton (N).','<b>Effects of force:</b> Can move a stationary object, stop a moving object, change speed or direction, change shape.','<b>Contact forces:</b> Muscular force, friction — act by physical contact.','<b>Non-contact forces:</b> Magnetic force, electrostatic force, gravitational force — act from a distance.','<b>Pressure:</b> Force acting per unit area. Pressure = Force ÷ Area. SI unit: Pascal (Pa).','Higher force or smaller area → greater pressure.','<b>Atmospheric pressure:</b> Pressure exerted by weight of atmosphere on earth\'s surface.','<b>Liquid pressure:</b> Liquids exert pressure on walls of container and bottom.','Pressure increases with depth in a liquid.','Dams, needles, knives designed based on pressure principles.'],
+    'Friction': ['<b>Friction:</b> Force that opposes relative motion between two surfaces in contact.','<b>Causes of friction:</b> Interlocking of irregularities on surfaces of two objects.','<b>Types of friction:</b> Static friction (object at rest), Sliding friction (object sliding), Rolling friction (object rolling).','Rolling friction < Sliding friction < Static friction.','<b>Advantages of friction:</b> Helps us walk, brakes on vehicles, writing, gripping objects.','<b>Disadvantages of friction:</b> Wear and tear of machines, heat produced, energy wasted.','<b>Methods to reduce friction:</b> Lubricants (oil, grease), ball bearings, smooth surfaces, streamlining.','<b>Methods to increase friction:</b> Treads on tyres, grooves on shoe soles, sand on icy roads.','<b>Fluid friction:</b> Friction exerted by fluids (liquids and gases) on objects moving through them.','Streamlined shape (aerofoil) reduces fluid friction in air and water.'],
+    'Sound': ['<b>Sound:</b> A form of energy produced by vibrations that travels as longitudinal waves.','Sound requires a material medium to travel — cannot travel through vacuum.','<b>Frequency:</b> Number of vibrations per second. Unit: Hertz (Hz).','<b>Amplitude:</b> Maximum displacement of vibrating body from its mean position.','<b>Loudness:</b> Depends on amplitude. Greater amplitude → louder sound.','<b>Pitch:</b> Depends on frequency. Higher frequency → higher pitch.','<b>Audible range for humans:</b> 20 Hz to 20,000 Hz.','<b>Infrasonic:</b> Below 20 Hz (elephants, whales). <b>Ultrasonic:</b> Above 20,000 Hz (bats, dolphins).','<b>Noise pollution:</b> Loud unpleasant sounds harmful to health. Causes headache, hearing loss.','<b>SONAR:</b> Sound Navigation And Ranging — uses ultrasound to detect objects underwater.'],
+    'Chemical Effects of Electric Current': ['<b>Conductors:</b> Allow electric current to pass — metals, graphite, salt solution, acids.','<b>Insulators:</b> Do not allow current to pass — rubber, plastic, wood, distilled water.','<b>Electrolysis:</b> Process of decomposition of a substance by passing electric current through it.','<b>Electrodes:</b> Conductors through which current enters and leaves electrolyte. Positive = anode; Negative = cathode.','<b>Electrolyte:</b> Liquid that conducts electricity (salt solution, acid solution).','<b>Electroplating:</b> Depositing a thin layer of desired metal on another metal using electrolysis.','Uses of electroplating: jewellery, coating iron with zinc (galvanisation), chrome plating on cars.','When current is passed through copper sulphate solution, copper deposits on cathode.','LED lights up when current passes through circuit with conducting liquid.'],
+    'Some Natural Phenomena': ['<b>Lightning:</b> Discharge of electricity between clouds or between cloud and earth during thunderstorms.','<b>Cause of lightning:</b> Accumulation of electric charges in clouds due to friction between ice and water particles.','<b>Thunder:</b> Sound produced by rapid expansion of air heated by lightning.','<b>Lightning conductor:</b> Metal rod installed on tall buildings to protect from lightning — conducts charge safely to earth.','<b>Earthquake:</b> Sudden shaking of earth\'s surface caused by movement of tectonic plates.','<b>Seismic waves:</b> Waves released by earthquake; detected by seismograph.','<b>Richter scale:</b> Scale used to measure magnitude of earthquake.','<b>Epicentre:</b> Point on earth\'s surface directly above focus of earthquake.','During earthquake: stay under sturdy furniture, away from windows, do not use lifts.','<b>Tsunami:</b> Giant sea waves caused by undersea earthquakes.'],
+    'Light': ['<b>Light:</b> Form of energy that enables us to see objects. Travels in straight lines.','<b>Laws of Reflection:</b> (1) Angle of incidence = angle of reflection. (2) Incident ray, reflected ray and normal are in same plane.','<b>Regular reflection:</b> From smooth surfaces — clear image formed (mirror).','<b>Diffuse reflection:</b> From rough surfaces — no clear image formed.','<b>Lateral inversion:</b> Left side appears as right side in mirror image.','<b>Multiple reflections:</b> Using two mirrors — kaleidoscope, periscope work on this.','<b>Dispersion of light:</b> White light splits into 7 colours (VIBGYOR) by prism.','<b>Human eye:</b> Cornea → Pupil → Iris → Lens → Retina → Optic nerve.','<b>Braille:</b> System of raised dots used by visually impaired people to read.','<b>Kaleidoscope:</b> Instrument using multiple reflections to create beautiful patterns.'],
+    'Stars and the Solar System': ['<b>Celestial bodies:</b> All objects in sky — stars, planets, moons, comets, asteroids.','<b>Moon:</b> Natural satellite of Earth; has no atmosphere; surface has craters.','<b>Phases of moon:</b> Different shapes of moon visible due to changing position relative to sun and earth.','<b>Star:</b> Celestial body that produces its own light. Sun is the nearest star.','<b>Constellation:</b> Group of stars forming a pattern. E.g., Ursa Major (Great Bear), Orion.','<b>Pole Star (Polaris):</b> Always appears in north direction; used for navigation.','<b>Solar system:</b> Sun and all bodies revolving around it — 8 planets, moons, asteroids, comets.','<b>Planets (in order):</b> Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.','<b>Comet:</b> Celestial body with long bright tail; visible periodically — e.g., Halley\'s Comet (every 76 years).','<b>Asteroid:</b> Small rocky bodies between Mars and Jupiter in asteroid belt.','<b>Meteor:</b> Small rocky pieces that enter earth\'s atmosphere and burn — shooting star.'],
+    'Pollution of Air and Water': ['<b>Pollution:</b> Addition of harmful substances to environment.','<b>Air pollutants:</b> CO, CO₂, SO₂, NO₂, smoke, dust, CFCs.','<b>Sources of air pollution:</b> Burning of fuels, factories, vehicles, deforestation.','<b>Greenhouse effect:</b> Trapping of heat by CO₂ and other gases in atmosphere → global warming.','<b>Acid rain:</b> Rain containing acids (H₂SO₄, HNO₃) formed when SO₂ and NO₂ react with water vapour.','<b>Effects of air pollution:</b> Respiratory diseases, smog, ozone layer depletion, acid rain.','<b>Water pollutants:</b> Sewage, industrial waste, chemical fertilisers, oil spills, plastic.','<b>Effects of water pollution:</b> Spread of waterborne diseases — cholera, typhoid, dysentery.','<b>Potable water:</b> Pure water fit for drinking.','<b>Water purification:</b> Filtration, boiling, chlorination, UV treatment.','Reduce, Reuse, Recycle — key to reducing pollution.'],
+
+    // ═══════════════════════════════════════════
+    // CLASS 8 MATHS
+    // ═══════════════════════════════════════════
+    'Rational Numbers': ['<b>Rational number:</b> Number in form p/q where p, q are integers and q ≠ 0.','<b>Properties of rational numbers:</b> Closed, commutative, associative under addition and multiplication.','Rational numbers are dense — between any two rational numbers, infinite rational numbers exist.','<b>Additive identity:</b> 0. <b>Multiplicative identity:</b> 1.','<b>Additive inverse</b> of p/q is −p/q. <b>Multiplicative inverse (reciprocal)</b> of p/q is q/p.','<b>Distributive property:</b> a(b + c) = ab + ac.','Rational numbers can be represented on number line.','Every integer, fraction and decimal is a rational number.'],
+    'Linear Equations in One Variable': ['<b>Linear equation:</b> Equation with highest power of variable = 1. E.g., 2x + 3 = 7.','<b>Solution:</b> Value of variable that satisfies the equation.','<b>Transposition:</b> Moving terms from one side to other with sign change.','Cross multiplication: if a/b = c/d then ad = bc.','Linear equations used to solve real-life problems — ages, money, measurements.','An equation remains balanced if same operation done on both sides.','<b>Variable on both sides:</b> Collect variable terms on one side, constants on other.'],
+    'Understanding Quadrilaterals': ['<b>Polygon:</b> Simple closed figure made of line segments.','<b>Quadrilateral:</b> Polygon with 4 sides. Sum of all angles = 360°.','<b>Parallelogram:</b> Opposite sides parallel and equal; opposite angles equal; diagonals bisect each other.','<b>Rectangle:</b> Parallelogram with all angles 90°; diagonals equal.','<b>Square:</b> Rectangle with all sides equal; diagonals equal and perpendicular bisectors.','<b>Rhombus:</b> Parallelogram with all sides equal; diagonals perpendicular bisectors.','<b>Trapezium:</b> One pair of opposite sides parallel.','<b>Kite:</b> Two pairs of adjacent sides equal.','<b>Regular polygon:</b> All sides equal, all angles equal.','Exterior angle of polygon = 360° ÷ number of sides.'],
+    'Practical Geometry': ['A quadrilateral can be constructed if 5 measurements are known.','<b>SSS construction:</b> Three sides and two diagonals of quadrilateral given.','<b>SAS construction:</b> Four sides and one angle given.','<b>Construction of special quadrilaterals:</b> Rectangles, squares, rhombus using specific properties.','Rhombus constructed using diagonals (perpendicular bisectors).','Rectangle constructed using two adjacent sides and one diagonal.','Square constructed using one side (all sides equal, all angles 90°).'],
+    'Data Handling': ['<b>Frequency:</b> Number of times a value occurs in data.','<b>Grouped frequency distribution:</b> Data grouped into class intervals.','<b>Bar graph:</b> Represents data using bars. <b>Double bar graph:</b> Compares two sets of data.','<b>Pie chart (circle graph):</b> Shows data as sectors of a circle. Angle = (value/total) × 360°.','<b>Histogram:</b> Bar graph for continuous data; no gaps between bars.','<b>Probability:</b> Likelihood of an event. P(E) = Number of favourable outcomes ÷ Total outcomes.','Probability always lies between 0 and 1. P = 0 means impossible; P = 1 means certain.','<b>Random experiment:</b> Experiment with more than one possible outcome.'],
+    'Squares and Square Roots': ['<b>Square number (Perfect square):</b> Number obtained by multiplying a number by itself. E.g., 4, 9, 16, 25.','Squares of even numbers are even; squares of odd numbers are odd.','A number ending in 2, 3, 7, 8 is never a perfect square.','<b>Properties:</b> Squares of numbers ending in 1 or 9 end in 1; in 4 or 6 end in 6; in 5 end in 5.','<b>Square root:</b> Inverse of squaring. √25 = 5.','Methods to find square root: Prime factorisation, Long division method.','Square root of a perfect square has no decimal.','<b>Pythagorean triplets:</b> Three numbers a, b, c such that a² + b² = c². E.g., 3, 4, 5.'],
+    'Cubes and Cube Roots': ['<b>Cube number:</b> Number obtained by multiplying a number by itself three times. E.g., 8, 27, 64, 125.','Cubes of even numbers are even; cubes of odd numbers are odd.','<b>Cube root:</b> Inverse of cubing. ∛27 = 3.','Method: Prime factorisation — group factors into triplets; one factor from each triplet.','A perfect cube has each prime factor appearing in groups of three.','Cube root of negative numbers is negative: ∛(−8) = −2.'],
+    'Comparing Quantities': ['<b>Percentage increase/decrease:</b> = (Change ÷ Original value) × 100.','<b>Profit%:</b> (Profit ÷ CP) × 100. <b>Loss%:</b> (Loss ÷ CP) × 100.','<b>Discount:</b> Reduction on marked price. Discount% = (Discount ÷ MP) × 100.','<b>SP = MP − Discount.</b>','<b>Simple Interest (SI):</b> SI = (P × R × T) / 100.','<b>Compound Interest (CI):</b> A = P(1 + R/100)ⁿ. CI = A − P.','CI is greater than SI for same principal, rate and time (after 1 year).','<b>GST:</b> Goods and Services Tax — tax added to selling price of goods.'],
+    'Algebraic Expressions and Identities': ['<b>Algebraic expression:</b> Combination of constants and variables connected by +/−.','<b>Monomial:</b> 1 term. <b>Binomial:</b> 2 terms. <b>Trinomial:</b> 3 terms.','<b>Multiplication of expressions:</b> Multiply each term of one expression with each term of other.','<b>Standard Identities:</b>','(a + b)² = a² + 2ab + b²','(a − b)² = a² − 2ab + b²','(a + b)(a − b) = a² − b²','(x + a)(x + b) = x² + (a + b)x + ab','These identities are used to simplify calculations and factorise expressions.'],
+    'Visualising Solid Shapes': ['3D shapes have length, breadth and height.','<b>Polyhedron:</b> Solid bounded by flat polygonal faces. E.g., cube, cuboid, pyramid.','<b>Euler\'s formula:</b> F + V − E = 2. (Faces + Vertices − Edges = 2).','<b>Prism:</b> Polyhedron with two identical parallel polygonal bases connected by rectangles.','<b>Pyramid:</b> Polyhedron with polygonal base and triangular faces meeting at apex.','<b>Cylinder, Cone, Sphere:</b> Not polyhedra (curved surfaces).','Nets of 3D shapes — 2D representation that can be folded to form 3D shape.','Views: Front view, side view, top view give different perspectives of a solid.'],
+    'Mensuration': ['<b>Area of trapezium:</b> ½ × (sum of parallel sides) × height.','<b>Area of rhombus:</b> ½ × d₁ × d₂ (d₁, d₂ are diagonals).','<b>Area of polygon:</b> Divide into triangles and add their areas.','<b>Surface area of cuboid:</b> 2(lb + bh + hl).','<b>Surface area of cube:</b> 6a².','<b>Surface area of cylinder:</b> Curved = 2πrh; Total = 2πr(r + h).','<b>Volume of cuboid:</b> l × b × h.','<b>Volume of cube:</b> a³.','<b>Volume of cylinder:</b> πr²h.','1 L = 1000 cm³ = 1 dm³.'],
+    'Exponents and Powers': ['<b>Negative exponents:</b> a⁻ᵐ = 1/aᵐ.','<b>Laws of exponents:</b> aᵐ × aⁿ = aᵐ⁺ⁿ; aᵐ ÷ aⁿ = aᵐ⁻ⁿ; (aᵐ)ⁿ = aᵐⁿ; a⁰ = 1.','<b>Standard form:</b> Number expressed as m × 10ⁿ where 1 ≤ m < 10 and n is integer.','Very large and very small numbers written in standard form. E.g., speed of light = 3 × 10⁸ m/s.','Negative exponents used for very small numbers. E.g., size of bacteria = 1 × 10⁻⁶ m.'],
+    'Direct and Inverse Proportions': ['<b>Direct proportion:</b> As one quantity increases, other increases in same ratio. x/y = constant (k).','If x and y are in direct proportion: x₁/y₁ = x₂/y₂.','<b>Inverse proportion:</b> As one quantity increases, other decreases. x × y = constant.','If x and y are in inverse proportion: x₁y₁ = x₂y₂.','Unitary method: Find value for one unit first, then multiply.','Examples: Speed-time (inverse), workers-days (inverse), items-cost (direct).'],
+    'Factorisation': ['<b>Factorisation:</b> Writing an algebraic expression as product of its factors.','<b>Common factor method:</b> Take out HCF of all terms. E.g., 2x + 4y = 2(x + 2y).','<b>Grouping:</b> Group terms with common factors.','<b>Using identities:</b> a² − b² = (a+b)(a−b); a² + 2ab + b² = (a+b)².','<b>Factorising x² + bx + c:</b> Find two numbers whose sum = b and product = c.','<b>Division of algebraic expressions:</b> Monomial ÷ Monomial; Polynomial ÷ Monomial.','Error: (a + b)² ≠ a² + b². Correct: (a + b)² = a² + 2ab + b².'],
+    'Introduction to Graphs': ['<b>Graph:</b> Visual representation of data on coordinate axes.','<b>X-axis:</b> Horizontal axis. <b>Y-axis:</b> Vertical axis.','<b>Origin (O):</b> Point where x-axis and y-axis meet. Coordinates (0, 0).','<b>Coordinates:</b> Ordered pair (x, y) giving position of a point.','<b>Line graph:</b> Points connected by lines to show change over time.','<b>Bar graph:</b> Bars to represent discrete data.','<b>Pie chart:</b> Circle divided into sectors for proportional data.','<b>Linear graph:</b> Straight line graph; represents directly proportional relationship.'],
+    'Playing with Numbers': ['A 2-digit number with digits a and b = 10a + b.','A 3-digit number with digits a, b, c = 100a + 10b + c.','<b>Reversing digits:</b> If number = 10a + b, reversed = 10b + a. Sum = 11(a + b).','<b>Divisibility rules:</b> By 2 (last digit even); by 3 (sum of digits divisible by 3); by 9 (sum of digits divisible by 9); by 5 (last digit 0 or 5).','Cryptarithmetic: Letters represent digits; find which digit each letter represents.','Games with numbers are based on properties of digits in place values.'],
+
+    // ═══════════════════════════════════════════
+    // CLASS 9 SCIENCE
+    // ═══════════════════════════════════════════
+    'Matter in Our Surroundings': ['<b>Matter:</b> Anything that has mass and occupies space.','<b>Physical states of matter:</b> Solid (fixed shape and volume), Liquid (fixed volume, no fixed shape), Gas (no fixed shape or volume).','<b>Characteristics of particles:</b> Particles of matter are very small; have spaces between them; are constantly moving; attract each other.','<b>Evaporation:</b> Surface phenomenon; liquid changes to vapour below boiling point. Causes cooling.','<b>Factors affecting evaporation:</b> Temperature, surface area, wind speed, humidity.','<b>Latent heat:</b> Heat energy absorbed or released during change of state without change in temperature.','<b>Latent heat of fusion:</b> Heat absorbed by solid to change to liquid at melting point.','<b>Latent heat of vaporisation:</b> Heat absorbed by liquid to change to vapour at boiling point.','Sublimation: Direct conversion of solid to gas — e.g., dry ice (solid CO₂), iodine, camphor.','<b>Plasma:</b> Super heated matter with free electrons and ions (4th state).','<b>BEC (Bose-Einstein Condensate):</b> 5th state at near absolute zero temperature.'],
+    'Is Matter Around Us Pure': ['<b>Pure substance:</b> Single type of particles, fixed composition — e.g., gold, water, sugar.','<b>Mixture:</b> Two or more substances mixed without chemical reaction.','<b>Homogeneous mixture (solution):</b> Uniform composition throughout — e.g., salt water, alloys.','<b>Heterogeneous mixture:</b> Non-uniform composition — e.g., soil, sand in water.','<b>Solute:</b> Substance dissolved. <b>Solvent:</b> Substance that dissolves. <b>Solution:</b> Solute + Solvent.','<b>Concentration of solution:</b> Amount of solute present per unit volume of solution.','<b>Suspension:</b> Heterogeneous mixture; particles visible; settle on standing.','<b>Colloid:</b> Heterogeneous but appears homogeneous; particles intermediate size; shows Tyndall effect.','<b>Tyndall effect:</b> Scattering of light by colloidal particles.','Separation methods: Evaporation, distillation, fractional distillation, chromatography, centrifugation.','<b>Elements:</b> Made of one type of atom. <b>Compounds:</b> Two or more elements chemically combined.'],
+    'Atoms and Molecules': ['<b>Law of Conservation of Mass:</b> Mass is neither created nor destroyed in a chemical reaction.','<b>Law of Constant Proportions:</b> A compound always contains elements in fixed mass ratio.','<b>Atom:</b> Smallest particle of element that can take part in chemical reaction.','<b>Atomic mass:</b> Relative mass of atom compared to 1/12 mass of carbon-12 atom.','<b>Molecule:</b> Smallest particle of element or compound that can exist independently.','<b>Atomicity:</b> Number of atoms in one molecule — monoatomic (He, Ar), diatomic (O₂, H₂), triatomic (O₃).','<b>Chemical formula:</b> Symbolic representation of a compound. E.g., H₂O, CO₂, NaCl.','<b>Mole:</b> Amount of substance containing 6.022 × 10²³ particles (Avogadro\'s number).','<b>Molar mass:</b> Mass of one mole of substance in grams.','Molecular mass = sum of atomic masses of all atoms in molecule.'],
+    'Structure of the Atom': ['<b>Thomson\'s model:</b> Atom is sphere of positive charge with electrons embedded — "plum pudding model".','<b>Rutherford\'s model:</b> Nucleus is small, dense, positively charged; electrons revolve around it.','<b>Bohr\'s model:</b> Electrons revolve in fixed orbits (shells) without losing energy.','<b>Proton:</b> Positively charged particle in nucleus. <b>Neutron:</b> Neutral particle in nucleus. <b>Electron:</b> Negatively charged, revolves around nucleus.','<b>Atomic number (Z):</b> Number of protons in nucleus.','<b>Mass number (A):</b> Total number of protons and neutrons in nucleus.','<b>Isotopes:</b> Atoms of same element with same atomic number but different mass numbers. E.g., ¹²C and ¹⁴C.','<b>Isobars:</b> Atoms of different elements with same mass number. E.g., ⁴⁰Ca and ⁴⁰Ar.','Electronic configuration: Shells K, L, M, N. Max electrons in nth shell = 2n².','Valency = electrons in outermost shell (or 8 minus outermost electrons if > 4).'],
+    'The Fundamental Unit of Life': ['<b>Cell:</b> Basic structural and functional unit of life. Discovered by Robert Hooke (1665).','<b>Cell theory (Schleiden and Schwann):</b> All living things are made of cells; cell is basic unit of life.','<b>Prokaryotic cell:</b> No membrane-bound nucleus — bacteria, blue-green algae.','<b>Eukaryotic cell:</b> Has well-defined nucleus — plants, animals, fungi.','<b>Plasma membrane:</b> Selectively permeable membrane surrounding cell.','<b>Osmosis:</b> Movement of water from region of high water concentration to low through semipermeable membrane.','<b>Cell wall:</b> Rigid outer layer in plant cells made of cellulose; provides structural support.','<b>Nucleus:</b> Contains DNA (genetic material); controls all cell activities.','<b>Mitochondria:</b> Powerhouse of cell; produces ATP energy.','<b>Endoplasmic reticulum (ER):</b> Network of membranes — rough ER (with ribosomes, protein synthesis), smooth ER (lipid synthesis).','<b>Golgi apparatus:</b> Packaging and dispatching of proteins.','<b>Lysosomes:</b> Suicidal bags; contain digestive enzymes.','<b>Vacuoles:</b> Plant cells have large central vacuole for storage and maintaining turgor.','<b>Chloroplasts:</b> Found only in plant cells; contain chlorophyll; site of photosynthesis.'],
+    'Tissues': ['<b>Tissue:</b> Group of cells similar in structure and function.','<b>Plant tissues:</b> Meristematic tissue (dividing cells) and Permanent tissue (non-dividing).','<b>Meristematic tissue:</b> Found at growing tips (apical), sides (lateral), between nodes (intercalary).','<b>Permanent tissue:</b> Simple (parenchyma, collenchyma, sclerenchyma) and Complex (xylem, phloem).','<b>Parenchyma:</b> Loosely packed; performs photosynthesis, storage.','<b>Collenchyma:</b> Provides flexibility to plant.','<b>Sclerenchyma:</b> Dead cells; provides rigidity and support — e.g., husk of coconut.','<b>Xylem:</b> Conducts water and minerals from roots to leaves.','<b>Phloem:</b> Conducts food (sugar) from leaves to all parts of plant.','<b>Animal tissues:</b> Epithelial, Connective, Muscular, Nervous.','<b>Epithelial tissue:</b> Covers body surfaces and organs; protection.','<b>Connective tissue:</b> Bone, cartilage, blood, adipose (fat); connect body parts.','<b>Muscular tissue:</b> Striated (voluntary, skeleton), Smooth (involuntary, internal organs), Cardiac (heart).','<b>Nervous tissue:</b> Neurons; transmit electrical impulses throughout body.'],
+    'Diversity in Living Organisms': ['<b>Classification:</b> Grouping organisms based on similarities and differences.','<b>Basis of classification:</b> Cell type, cell wall, nutrition mode, body organisation, number of cells.','<b>Hierarchy:</b> Kingdom → Phylum → Class → Order → Family → Genus → Species.','<b>Five kingdoms (Whittaker):</b> Monera, Protista, Fungi, Plantae, Animalia.','<b>Monera:</b> Prokaryotic, no nuclear membrane — bacteria, cyanobacteria.','<b>Protista:</b> Unicellular eukaryotes — Amoeba, Paramecium, Euglena.','<b>Fungi:</b> Non-green; absorb nutrition from dead matter; cell wall of chitin — mushrooms, yeast, Aspergillus.','<b>Plantae:</b> Multicellular, autotrophic, cell wall of cellulose — all plants.','<b>Animalia:</b> Multicellular, heterotrophic, no cell wall — all animals.','<b>Binomial nomenclature (Linnaeus):</b> Two-part scientific name — Genus species. E.g., Homo sapiens.'],
+    'Motion': ['<b>Rest:</b> Object not changing position relative to surroundings.','<b>Motion:</b> Object changing position with time.','<b>Distance:</b> Total path covered. Scalar (no direction).','<b>Displacement:</b> Shortest distance from initial to final position. Vector (has direction).','<b>Speed:</b> Distance ÷ Time. Scalar quantity.','<b>Velocity:</b> Displacement ÷ Time. Vector quantity.','<b>Acceleration:</b> Rate of change of velocity. a = (v − u) / t.','<b>Equations of motion:</b> v = u + at; s = ut + ½at²; v² = u² + 2as.','<b>Uniform motion:</b> Equal distances in equal time intervals.','<b>Non-uniform motion:</b> Unequal distances in equal time intervals.','Distance-time graph: straight line = uniform motion; curved = non-uniform motion.','Velocity-time graph: area under graph = distance travelled.'],
+    'Force and Laws of Motion': ['<b>Force:</b> Push or pull that changes or tends to change state of rest or motion.','<b>Newton\'s 1st Law (Inertia):</b> Object at rest stays at rest; object in motion stays in motion unless external force acts.','<b>Inertia:</b> Tendency of object to resist change in state.','<b>Mass:</b> Measure of inertia. Greater mass = greater inertia.','<b>Momentum (p):</b> Product of mass and velocity. p = mv. Unit: kg m/s.','<b>Newton\'s 2nd Law:</b> F = ma. Force = rate of change of momentum.','<b>Newton\'s 3rd Law:</b> Every action has equal and opposite reaction.','<b>Law of conservation of momentum:</b> Total momentum before collision = total momentum after collision.','<b>Balanced forces:</b> Net force = 0; no change in motion.','<b>Unbalanced forces:</b> Net force ≠ 0; causes acceleration.'],
+    'Gravitation': ['<b>Universal Law of Gravitation (Newton):</b> Every object in universe attracts every other object with force proportional to product of masses and inversely proportional to square of distance.','F = G × m₁ × m₂ / d². G = 6.673 × 10⁻¹¹ Nm²/kg².','<b>Gravity:</b> Force of attraction between earth and an object.','<b>Free fall:</b> Object falling only under influence of gravity; acceleration = g = 9.8 m/s².','<b>g (acceleration due to gravity):</b> 9.8 m/s² on earth\'s surface.','<b>Weight:</b> Force of gravity on object. W = mg. Unit: Newton.','<b>Mass:</b> Amount of matter; constant everywhere. <b>Weight:</b> Changes with location (less on moon, zero in space).','<b>Thrust:</b> Force acting on object perpendicular to its surface.','<b>Pressure:</b> Thrust per unit area. P = F/A.','<b>Buoyancy:</b> Upward force exerted by liquid on object immersed in it.','<b>Archimedes\' Principle:</b> Buoyant force = weight of fluid displaced.'],
+    'Work and Energy': ['<b>Work:</b> Product of force and displacement in direction of force. W = F × s × cosθ.','Work done is zero if force is perpendicular to displacement.','SI unit of work: Joule (J). 1 J = 1 N × 1 m.','<b>Energy:</b> Capacity to do work. SI unit: Joule.','<b>Kinetic energy (KE):</b> Energy due to motion. KE = ½mv².','<b>Potential energy (PE):</b> Energy stored due to position. Gravitational PE = mgh.','<b>Law of Conservation of Energy:</b> Energy cannot be created or destroyed; only converted from one form to another.','<b>Power:</b> Rate of doing work. P = W/t. SI unit: Watt (W). 1 W = 1 J/s.','<b>Commercial unit of energy:</b> kilowatt-hour (kWh). 1 kWh = 3.6 × 10⁶ J.','1 horsepower (hp) = 746 W.'],
+    'Sound': ['<b>Sound:</b> Mechanical wave produced by vibrating objects; requires medium to travel.','<b>Longitudinal wave:</b> Particles vibrate in direction of wave propagation (compressions and rarefactions).','<b>Frequency (f):</b> Number of oscillations per second. Unit: Hz. Determines pitch.','<b>Amplitude:</b> Maximum displacement from mean position. Determines loudness.','<b>Speed of sound:</b> In air at 25°C = 346 m/s. In solids > liquids > gases.','<b>Wavelength (λ):</b> Distance between two consecutive compressions or rarefactions.','<b>Relation:</b> v = fλ (speed = frequency × wavelength).','<b>Reflection of sound:</b> Echo — sound heard after reflection. Conditions: distance > 17.2 m; time gap > 0.1 s.','<b>SONAR:</b> Uses ultrasound (> 20,000 Hz) to detect underwater objects.','<b>Range of hearing:</b> Humans 20 Hz–20,000 Hz. Infrasound < 20 Hz. Ultrasound > 20,000 Hz.'],
+    'Why Do We Fall Ill': ['<b>Health:</b> State of physical, mental and social well-being.','<b>Disease:</b> Improper functioning of body or mind.','<b>Acute disease:</b> Lasts for short period — cold, cough.','<b>Chronic disease:</b> Lasts for long period — tuberculosis, diabetes.','<b>Infectious (communicable) diseases:</b> Caused by pathogens — bacteria, viruses, fungi, protozoa, worms.','<b>Non-infectious diseases:</b> Not spread from one person to another — cancer, diabetes.','<b>Means of spread:</b> Air (TB, cold), water (cholera, typhoid), food, contact, vectors (mosquitoes → malaria).','<b>Antibiotics:</b> Kill bacteria, not viruses. Effective against bacterial diseases.','<b>Vaccination:</b> Introduces weakened/killed pathogen to stimulate immune response.','<b>Prevention:</b> Better than cure — good hygiene, clean water, vaccination, balanced diet.'],
+    'Natural Resources': ['<b>Natural resources:</b> Resources obtained from nature — air, water, soil, minerals, fossil fuels.','<b>Atmosphere:</b> Layer of air surrounding earth. Protects from UV rays; maintains temperature.','<b>Nitrogen cycle:</b> Nitrogen fixation → nitrification → assimilation → ammonification → denitrification.','<b>Oxygen cycle:</b> Released by photosynthesis; used in respiration and combustion.','<b>Greenhouse effect:</b> CO₂, CH₄, N₂O trap heat in atmosphere → global warming.','<b>Ozone layer:</b> In stratosphere; absorbs harmful UV rays from sun. Depleted by CFCs.','<b>Water cycle:</b> Evaporation → condensation → precipitation → collection.','<b>Soil formation:</b> Weathering of rocks; humus from dead organic matter.','<b>Biogeochemical cycles:</b> Cycling of nutrients through living organisms and environment.','Overuse of resources leads to depletion — conservation is essential.'],
+    'Improvement in Food Resources': ['<b>Food security:</b> Availability, accessibility and affordability of food for all people.','<b>Green revolution:</b> Use of HYV (High Yielding Variety) seeds, fertilisers, irrigation for increased crop production.','<b>Crop varieties:</b> Kharif (summer), Rabi (winter), Zaid (short season).','<b>Mixed farming:</b> Growing crops along with raising animals.','<b>Intercropping:</b> Growing two or more crops simultaneously on same field.','<b>Crop rotation:</b> Growing different crops alternately to maintain soil fertility.','<b>Manure:</b> Organic; improves soil texture and fertility.','<b>Fertiliser:</b> Chemical; provides specific nutrients (NPK) quickly.','<b>Irrigation methods:</b> Wells, canals, tanks, drip irrigation, sprinkler system.','<b>Animal husbandry:</b> Management of domestic animals for food — cattle farming, poultry, fisheries, bee-keeping.'],
+
+    // ═══════════════════════════════════════════
+    // CLASS 9 MATHS
+    // ═══════════════════════════════════════════
+    'Number Systems': ['<b>Natural numbers (N):</b> 1, 2, 3, 4... (counting numbers).','<b>Whole numbers (W):</b> 0, 1, 2, 3... (natural + zero).','<b>Integers (Z):</b> ...-3, -2, -1, 0, 1, 2, 3...','<b>Rational numbers (Q):</b> p/q form where p, q are integers, q ≠ 0.','<b>Irrational numbers:</b> Cannot be expressed as p/q — e.g., √2, √3, π.','<b>Real numbers (R):</b> All rational and irrational numbers together.','Every real number corresponds to a unique point on number line.','<b>Laws of exponents for real numbers:</b> aᵐ × aⁿ = aᵐ⁺ⁿ; (aᵐ)ⁿ = aᵐⁿ; aᵐ/aⁿ = aᵐ⁻ⁿ.','<b>Rationalisation:</b> Removing irrational number from denominator by multiplying numerator and denominator by conjugate.','Decimal expansion: rational → terminating or recurring; irrational → non-terminating, non-recurring.'],
+    'Polynomials': ['<b>Polynomial:</b> Algebraic expression with non-negative integer exponents.','<b>Degree of polynomial:</b> Highest power of variable. Linear (1), Quadratic (2), Cubic (3).','<b>Zero of polynomial:</b> Value of x for which p(x) = 0.','<b>Factor theorem:</b> (x − a) is factor of p(x) if p(a) = 0.','<b>Remainder theorem:</b> When p(x) divided by (x − a), remainder = p(a).','<b>Identities:</b> (a+b)² = a²+2ab+b²; (a−b)² = a²−2ab+b²; (a+b+c)² = a²+b²+c²+2ab+2bc+2ca.','(a+b)³ = a³+3a²b+3ab²+b³; (a−b)³ = a³−3a²b+3ab²−b³.','a³+b³ = (a+b)(a²−ab+b²); a³−b³ = (a−b)(a²+ab+b²).'],
+    'Coordinate Geometry': ['<b>Cartesian plane:</b> Plane with two perpendicular axes — x-axis (horizontal) and y-axis (vertical).','<b>Origin:</b> Point of intersection of axes (0, 0).','<b>Quadrants:</b> Axes divide plane into 4 quadrants. Q1(+,+), Q2(−,+), Q3(−,−), Q4(+,−).','<b>Coordinates (x, y):</b> x = abscissa (horizontal distance), y = ordinate (vertical distance).','Point on x-axis: y = 0. Point on y-axis: x = 0.','<b>Plotting a point:</b> Start at origin, move x units along x-axis, then y units parallel to y-axis.'],
+    'Linear Equations in Two Variables': ['<b>Linear equation in two variables:</b> ax + by + c = 0 where a, b, c are real and a, b ≠ 0.','Has infinitely many solutions — each solution is an ordered pair (x, y).','<b>Graph:</b> Equation ax + by + c = 0 represents a straight line.','Every point on the line satisfies the equation.','x = 0 is y-axis equation; y = 0 is x-axis equation.','Equation of line parallel to y-axis: x = k. Parallel to x-axis: y = k.'],
+    'Introduction to Euclid\'s Geometry': ['<b>Geometry:</b> Branch of mathematics dealing with shapes, sizes and properties of figures.','<b>Euclid\'s definitions:</b> A point has no part; a line has no breadth; a surface has no thickness.','<b>Euclid\'s postulates:</b> (1) Line from any point to any point; (2) Line segment extended; (3) Circle with any centre and radius; (4) All right angles equal; (5) Parallel postulate.','<b>Axioms:</b> Self-evident truths applicable to all. E.g., whole > part.','<b>Theorem:</b> Statement proved using axioms, definitions and previously proved results.','<b>Equivalent versions of 5th postulate:</b> Through a point outside a line, only one parallel line can be drawn.'],
+    'Lines and Angles': ['<b>Line segment:</b> Part of line with two endpoints. <b>Ray:</b> Part of line with one endpoint.','<b>Angle:</b> Formed when two rays meet at a point.','<b>Types of angles:</b> Acute (< 90°), Right (= 90°), Obtuse (90°–180°), Straight (= 180°), Reflex (> 180°).','<b>Supplementary angles:</b> Sum = 180°. <b>Complementary angles:</b> Sum = 90°.','<b>Linear pair:</b> Adjacent angles on a straight line; sum = 180°.','<b>Vertically opposite angles:</b> Equal.','<b>Transversal cutting parallel lines:</b> Alternate interior angles equal; corresponding angles equal; co-interior angles supplementary.'],
+    'Triangles': ['<b>Congruent triangles:</b> Same shape and size. All sides and angles equal.','<b>Congruence criteria:</b> SSS, SAS, ASA, AAS, RHS.','<b>Properties of triangles:</b> Sum of all angles = 180°; exterior angle = sum of two non-adjacent interior angles.','<b>Isosceles triangle:</b> Two equal sides; angles opposite equal sides are equal.','<b>Inequalities in triangle:</b> Greater angle has longer opposite side; sum of two sides > third side.'],
+    'Quadrilaterals': ['<b>Quadrilateral:</b> Four-sided polygon. Sum of angles = 360°.','<b>Parallelogram:</b> Opposite sides parallel and equal; opposite angles equal; diagonals bisect each other.','<b>Theorem:</b> Diagonal of parallelogram divides it into two congruent triangles.','<b>Midpoint theorem:</b> Line joining midpoints of two sides of triangle is parallel to third side and half its length.','<b>Rectangle, rhombus, square</b> are special parallelograms.','<b>Trapezium:</b> One pair of parallel sides.'],
+    'Areas of Parallelograms and Triangles': ['Figures on same base and between same parallels have equal area.','<b>Area of parallelogram:</b> base × height.','<b>Area of triangle:</b> ½ × base × height = ½ × area of parallelogram on same base.','Two triangles with same base (or equal bases) and same height are equal in area.','<b>Median</b> of triangle divides it into two triangles of equal area.'],
+    'Circles': ['<b>Circle:</b> Collection of points equidistant from fixed centre.','<b>Chord:</b> Line segment joining two points on circle. Diameter is longest chord.','Equal chords are equidistant from centre.','<b>Arc:</b> Part of circle. <b>Minor arc:</b> Less than semicircle. <b>Major arc:</b> More than semicircle.','<b>Angle in semicircle:</b> Always 90°.','Angles subtended by same arc at centre = twice angle at circumference.','Equal chords subtend equal angles at centre.','<b>Cyclic quadrilateral:</b> All four vertices lie on circle; opposite angles supplementary.'],
+    'Constructions': ['Basic constructions: perpendicular bisector of segment, angle bisector.','<b>Construct 60°:</b> Draw arc → same arc from endpoint → join.','<b>Construct 90°:</b> Bisect 180° (straight line).','<b>Triangle constructions:</b> Given base, base angle, and (sum or difference of other two sides or perimeter).','Always use ruler and compass only. Protractor not allowed.'],
+    'Heron\'s Formula': ['<b>Area of triangle:</b> Using base and height = ½ × b × h.','<b>Heron\'s formula:</b> Area = √[s(s−a)(s−b)(s−c)] where s = (a+b+c)/2 (semi-perimeter).','Used when all three sides are known but height is unknown.','Area of quadrilateral: Divide into two triangles and add areas.'],
+    'Surface Areas and Volumes': ['<b>Cuboid:</b> LSA = 2h(l+b); TSA = 2(lb+bh+hl); Volume = lbh.','<b>Cube:</b> LSA = 4a²; TSA = 6a²; Volume = a³.','<b>Cylinder:</b> CSA = 2πrh; TSA = 2πr(r+h); Volume = πr²h.','<b>Cone:</b> CSA = πrl (l = slant height); TSA = πr(r+l); Volume = ⅓πr²h.','<b>Sphere:</b> SA = 4πr²; Volume = (4/3)πr³.','<b>Hemisphere:</b> CSA = 2πr²; TSA = 3πr²; Volume = (2/3)πr³.','Slant height of cone: l = √(r² + h²).'],
+    'Statistics': ['<b>Statistics:</b> Collection, organisation, presentation, analysis and interpretation of data.','<b>Raw data:</b> Data in original collected form.','<b>Range:</b> Highest value − Lowest value.','<b>Mean:</b> Sum of all observations ÷ Number of observations.','<b>Median:</b> Middle value when data arranged in ascending order.','<b>Mode:</b> Most frequently occurring value.','<b>Frequency distribution table:</b> Tally marks used to organise data.','<b>Bar graph, histogram, frequency polygon:</b> Graphical representations.'],
+    'Probability': ['<b>Probability:</b> Numerical measure of likelihood of an event.','<b>Experiment:</b> Any action with uncertain outcomes.','<b>Sample space (S):</b> Set of all possible outcomes.','<b>Event:</b> Subset of sample space.','P(E) = Number of favourable outcomes ÷ Total number of outcomes.','0 ≤ P(E) ≤ 1. P(impossible event) = 0. P(certain event) = 1.','P(E) + P(Ē) = 1 (E and Ē are complementary events).'],
+
+    // ═══════════════════════════════════════════
+    // CLASS 10 SCIENCE
+    // ═══════════════════════════════════════════
+    'Chemical Reactions and Equations': ['<b>Chemical reaction:</b> Process in which substances react to form new substances with different properties.','<b>Signs of chemical reaction:</b> Change in colour, evolution of gas, change in temperature, formation of precipitate.','<b>Chemical equation:</b> Symbolic representation of chemical reaction.','<b>Balanced chemical equation:</b> Equal number of atoms on both sides.','<b>Types of reactions:</b> Combination (A+B→AB), Decomposition (AB→A+B), Displacement (A+BC→AC+B), Double displacement (AB+CD→AD+CB), Redox.','<b>Exothermic:</b> Heat released. <b>Endothermic:</b> Heat absorbed.','<b>Oxidation:</b> Loss of electrons/gain of oxygen. <b>Reduction:</b> Gain of electrons/loss of oxygen.','<b>Corrosion:</b> Metal reacting slowly with substances in environment — rusting of iron.','<b>Rancidity:</b> Fats and oils oxidising, producing unpleasant smell and taste.'],
+    'Acids, Bases and Salts': ['<b>Acids:</b> Produce H⁺ (H₃O⁺) ions in aqueous solution. Sour taste, turn blue litmus red.','<b>Bases:</b> Produce OH⁻ ions in aqueous solution. Bitter taste, soapy, turn red litmus blue.','<b>Neutralisation:</b> Acid + Base → Salt + Water.','<b>pH scale:</b> 0–14. pH < 7 = acidic; pH = 7 = neutral; pH > 7 = basic.','<b>Strong acids:</b> HCl, H₂SO₄, HNO₃. <b>Weak acids:</b> CH₃COOH (acetic acid), H₂CO₃.','<b>Important salts:</b> Baking soda (NaHCO₃), Washing soda (Na₂CO₃), Bleaching powder (CaOCl₂), Plaster of Paris (CaSO₄·½H₂O).','<b>Baking soda:</b> Used in food, fire extinguishers; mild antacid.','<b>Bleaching powder:</b> CaOCl₂; used to disinfect drinking water, bleach cloth.','<b>Plaster of Paris:</b> CaSO₄·½H₂O; hardens on adding water; used for casts.'],
+    'Metals and Non-metals': ['<b>Metals:</b> Lustrous, malleable, ductile, good conductors, high melting points.','<b>Non-metals:</b> Not lustrous, brittle, poor conductors, low melting points.','<b>Reactivity series:</b> K > Na > Ca > Mg > Al > Zn > Fe > Pb > H > Cu > Ag > Au.','<b>Ionic bond:</b> Transfer of electrons from metal to non-metal; forms ions.','<b>Extraction of metals:</b> Highly reactive (electrolysis), Moderately reactive (reduction with carbon), Less reactive (heating alone).','<b>Refining:</b> Purification of impure metals by electrolysis.','<b>Alloys:</b> Mixture of metals or metal + non-metal. E.g., steel (Fe+C), brass (Cu+Zn), bronze (Cu+Sn).','<b>Corrosion prevention:</b> Painting, oiling, galvanisation, alloying, electroplating.'],
+    'Carbon and its Compounds': ['<b>Carbon:</b> Atomic number 6; forms 4 covalent bonds; tetravalent.','<b>Covalent bond:</b> Sharing of electrons between atoms.','<b>Allotropes of carbon:</b> Diamond (hardest; tetrahedral structure), Graphite (soft; layered structure; conducts electricity).','<b>Hydrocarbons:</b> Compounds of C and H only. Saturated (alkanes — only C-C bonds), Unsaturated (alkenes, alkynes — double/triple bonds).','<b>Homologous series:</b> Group of compounds with same functional group, same formula, increasing by CH₂.','<b>Functional groups:</b> −OH (alcohol), −COOH (carboxylic acid), −CHO (aldehyde), −C=O (ketone), halogens.','<b>Soap:</b> Sodium salt of long-chain fatty acid. Cleans by forming micelles around grease.','<b>Detergent:</b> Works in hard water (soap doesn\'t). Remains effective in acidic/salty conditions.','<b>Ethanol:</b> CH₃CH₂OH; used as fuel, solvent, in alcoholic drinks.','<b>Ethanoic acid (acetic acid):</b> CH₃COOH; in vinegar; turns litmus red.'],
+    'Life Processes': ['<b>Life processes:</b> Nutrition, respiration, transportation, excretion, reproduction, growth, movement.','<b>Autotrophic nutrition:</b> Organisms make own food — plants by photosynthesis.','<b>Heterotrophic nutrition:</b> Organisms depend on others — animals, fungi.','<b>Photosynthesis:</b> 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (in presence of sunlight and chlorophyll).','<b>Human digestive system:</b> Mouth → Oesophagus → Stomach → Small intestine → Large intestine.','<b>Respiration:</b> Breakdown of glucose to release energy. Aerobic (with O₂), Anaerobic (without O₂).','<b>Human respiratory system:</b> Nostrils → Trachea → Bronchi → Lungs → Alveoli.','<b>Transportation:</b> Blood circulatory system — heart, arteries, veins, capillaries.','<b>Double circulation:</b> Blood passes through heart twice in one cycle.','<b>Excretion:</b> Removal of metabolic waste — kidneys (urine), skin (sweat), lungs (CO₂).'],
+    'Control and Coordination': ['<b>Nervous system:</b> Controls rapid responses — brain, spinal cord, nerves.','<b>Neuron:</b> Structural and functional unit of nervous system; transmits electrical impulses.','<b>Reflex action:</b> Automatic rapid response to stimulus — spinal cord, not brain, controls it.','<b>Reflex arc:</b> Receptor → Sensory nerve → Spinal cord → Motor nerve → Effector.','<b>Brain:</b> Forebrain (thinking, voluntary actions), Midbrain (vision/hearing relay), Hindbrain (involuntary actions, balance).','<b>Endocrine system:</b> Controls slow, long-term responses using hormones.','<b>Hormones:</b> Chemical messengers secreted by endocrine glands into blood.','<b>Important hormones:</b> Insulin (pancreas — blood sugar), Thyroxine (thyroid — metabolism), Adrenaline (adrenal — emergency response).','<b>Plant hormones:</b> Auxin (growth), Gibberellin (elongation), Cytokinin (cell division), Abscisic acid (inhibitor).','<b>Tropic movements:</b> Growth in direction of stimulus — phototropism (light), geotropism (gravity), hydrotropism (water).'],
+    'How do Organisms Reproduce': ['<b>Reproduction:</b> Producing new organisms of same kind; ensures continuity of species.','<b>Asexual reproduction:</b> One parent; no gametes. E.g., Binary fission (Amoeba), Budding (Hydra), Fragmentation (Spirogyra), Spore formation, Vegetative propagation.','<b>Sexual reproduction:</b> Two parents; involves gametes (sperm + egg).','<b>Male reproductive system:</b> Testes, vas deferens, urethra, penis; testes produce sperm and testosterone.','<b>Female reproductive system:</b> Ovaries, fallopian tubes, uterus, vagina; ovaries produce eggs and oestrogen.','<b>Fertilisation in humans:</b> Sperm + Egg → Zygote → Embryo → Foetus.','<b>Menstrual cycle:</b> 28-day cycle; uterus lining sheds if no fertilisation.','<b>Contraception:</b> Barrier (condom, diaphragm), Oral pills, Surgical (vasectomy, tubectomy).','<b>Sexually transmitted infections:</b> HIV/AIDS, gonorrhoea, syphilis.'],
+    'Heredity and Evolution': ['<b>Heredity:</b> Transmission of characters from parents to offspring through genes.','<b>Variation:</b> Differences among individuals of same species.','<b>Mendel\'s experiments:</b> Worked on pea plants; discovered laws of inheritance.','<b>Law of Segregation:</b> Two alleles separate during gamete formation.','<b>Law of Independent Assortment:</b> Genes for different traits segregate independently.','<b>Dominant trait:</b> Appears in heterozygous condition. <b>Recessive:</b> Only appears when homozygous.','<b>DNA:</b> Deoxyribonucleic acid; hereditary material in chromosomes.','<b>Gene:</b> Segment of DNA carrying information for a specific character.','<b>Sex determination:</b> XX = female; XY = male. Father determines sex of child.','<b>Evolution:</b> Gradual change in species over generations — Darwin\'s Theory of Natural Selection.','Acquired characters are not inherited; only genetic changes pass to offspring.'],
+    'Light – Reflection and Refraction': ['<b>Reflection:</b> Bouncing back of light from a surface.','<b>Laws of reflection:</b> Angle of incidence = angle of reflection; incident ray, normal and reflected ray in same plane.','<b>Concave mirror:</b> Reflecting surface curves inward. Focal length positive.','<b>Convex mirror:</b> Reflecting surface curves outward. Always forms virtual, erect, diminished image.','<b>Mirror formula:</b> 1/v + 1/u = 1/f. Magnification m = −v/u.','<b>Refraction:</b> Bending of light as it passes from one medium to another.','<b>Snell\'s law:</b> n₁sin θ₁ = n₂sin θ₂; n = speed of light in vacuum / speed of light in medium.','<b>Convex lens:</b> Converging lens; forms real and inverted image (virtual if object inside F).','<b>Concave lens:</b> Diverging lens; always forms virtual, erect, diminished image.','<b>Lens formula:</b> 1/v − 1/u = 1/f. Power of lens P = 1/f (in metres); unit: Dioptre (D).'],
+    'Human Eye and Colourful World': ['<b>Human eye:</b> Cornea → Aqueous humour → Iris/Pupil → Lens → Vitreous humour → Retina → Optic nerve.','<b>Accommodation:</b> Ability of eye lens to change focal length (ciliary muscles).','Near point: 25 cm. Far point: infinity (for normal eye).','<b>Myopia (short-sightedness):</b> Image forms in front of retina; corrected by concave lens.','<b>Hypermetropia (long-sightedness):</b> Image forms behind retina; corrected by convex lens.','<b>Presbyopia:</b> Age-related loss of accommodation; corrected by bifocal lens.','<b>Dispersion:</b> White light splits into VIBGYOR by prism.','<b>Rainbow:</b> Formed by dispersion of sunlight by water droplets.','<b>Scattering of light:</b> Shorter wavelength (blue) scattered more → sky appears blue.','<b>Tyndall effect:</b> Scattering of light by colloidal particles.'],
+    'Electricity': ['<b>Electric charge:</b> Property of matter. Two types: positive and negative.','<b>Electric current (I):</b> Rate of flow of charge. I = Q/t. Unit: Ampere (A).','<b>Potential difference (V):</b> Work done per unit charge. V = W/Q. Unit: Volt (V).','<b>Resistance (R):</b> Opposition to flow of current. Unit: Ohm (Ω).','<b>Ohm\'s law:</b> V = IR (at constant temperature).','<b>Resistors in series:</b> R = R₁ + R₂ + R₃.','<b>Resistors in parallel:</b> 1/R = 1/R₁ + 1/R₂ + 1/R₃.','<b>Electric power:</b> P = VI = I²R = V²/R. Unit: Watt (W).','<b>Electric energy:</b> E = Pt = VIt. Commercial unit: kilowatt-hour (kWh). 1 kWh = 3.6 × 10⁶ J.','<b>Heating effect of current:</b> H = I²Rt (Joule\'s law).','Fuse wire: low melting point; protects circuit from overloading.'],
+    'Magnetic Effects of Electric Current': ['<b>Magnetic field:</b> Region around magnet where magnetic force acts. Represented by field lines.','<b>Oersted\'s discovery:</b> Electric current produces magnetic field.','<b>Right-hand thumb rule:</b> Thumb points in direction of current → fingers curl in direction of field.','<b>Electromagnet:</b> Temporary magnet made by passing current through coil around iron core.','<b>Electric motor:</b> Converts electrical energy to mechanical energy; works on magnetic effect of current.','<b>Electromagnetic induction (Faraday):</b> Changing magnetic field induces EMF in conductor.','<b>Generator:</b> Converts mechanical energy to electrical energy. AC generator produces alternating current.','<b>Domestic electric circuits:</b> Live wire (red/brown), Neutral wire (black/blue), Earth wire (green/yellow).','Earth wire: safety; directs leaked current to ground.','Overloading: too many devices connected → wire heats up → fire risk. MCB prevents this.'],
+    'Our Environment': ['<b>Ecosystem:</b> All living organisms in an area plus their physical environment.','<b>Food chain:</b> Transfer of energy from one trophic level to next.','<b>Food web:</b> Interconnected food chains.','<b>Trophic levels:</b> Producers (plants) → Primary consumers → Secondary consumers → Tertiary consumers.','<b>10% law:</b> Only 10% of energy transfers from one trophic level to next.','<b>Biodegradable waste:</b> Decomposed by microorganisms — vegetable peels, paper.','<b>Non-biodegradable waste:</b> Not decomposed — plastic, DDT, heavy metals.','<b>Ozone layer:</b> In stratosphere; absorbs UV rays. Depleted by CFCs.','<b>Biological magnification:</b> Increase in concentration of harmful chemicals at each trophic level.','<b>Sustainable development:</b> Meeting present needs without compromising future generations\' ability to meet theirs.'],
+
+    // ═══════════════════════════════════════════
+    // CLASS 10 MATHS
+    // ═══════════════════════════════════════════
+    'Real Numbers': ['<b>Euclid\'s Division Lemma:</b> For any two positive integers a and b, a = bq + r where 0 ≤ r < b.','<b>HCF by Euclid\'s algorithm:</b> HCF(a, b) = HCF(b, r) where a = bq + r.','<b>Fundamental theorem of arithmetic:</b> Every composite number can be expressed as product of primes in a unique way.','<b>HCF × LCM = Product of two numbers.</b>','<b>Rational numbers:</b> Decimal expansion is terminating or non-terminating repeating.','<b>Irrational numbers:</b> Decimal expansion is non-terminating, non-repeating — e.g., √2, √3, π.','Terminating decimal: prime factors of denominator are only 2s and 5s.'],
+    'Polynomials': ['<b>Degree:</b> Highest power of variable. Linear (1), Quadratic (2), Cubic (3).','<b>Zeroes of polynomial:</b> Values of x where p(x) = 0.','For quadratic p(x) = ax² + bx + c: sum of zeroes = −b/a; product of zeroes = c/a.','For cubic p(x) = ax³+bx²+cx+d: sum = −b/a; sum of products of pairs = c/a; product = −d/a.','<b>Division algorithm:</b> p(x) = g(x)·q(x) + r(x) where degree of r(x) < degree of g(x).','Geometric meaning: zeroes are x-intercepts of graph y = p(x).'],
+    'Pair of Linear Equations in Two Variables': ['A pair of linear equations: a₁x+b₁y+c₁=0 and a₂x+b₂y+c₂=0.','<b>Consistent:</b> Has solution (unique or infinite). <b>Inconsistent:</b> No solution.','If a₁/a₂ ≠ b₁/b₂ → unique solution (intersecting lines).','If a₁/a₂ = b₁/b₂ = c₁/c₂ → infinite solutions (coincident lines).','If a₁/a₂ = b₁/b₂ ≠ c₁/c₂ → no solution (parallel lines).','<b>Methods of solving:</b> Substitution, Elimination, Cross-multiplication, Graphical.'],
+    'Quadratic Equations': ['<b>Quadratic equation:</b> ax² + bx + c = 0 where a ≠ 0.','<b>Methods to solve:</b> Factorisation, Completing the square, Quadratic formula.','<b>Quadratic formula:</b> x = [−b ± √(b²−4ac)] / 2a.','<b>Discriminant (D) = b²−4ac:</b> D > 0 → two real distinct roots; D = 0 → two equal roots; D < 0 → no real roots.','Nature of roots depends only on discriminant.'],
+    'Arithmetic Progressions': ['<b>AP:</b> Sequence where difference between consecutive terms is constant.','<b>Common difference (d):</b> d = a₂ − a₁.','<b>nth term:</b> aₙ = a + (n−1)d.','<b>Sum of n terms:</b> Sₙ = n/2 [2a + (n−1)d] = n/2(a + l) where l = last term.','If sum of n terms is given, nth term = Sₙ − Sₙ₋₁.','Three numbers in AP: (a−d), a, (a+d).'],
+    'Triangles': ['<b>Similar triangles:</b> Same shape but different size; corresponding angles equal; corresponding sides proportional.','<b>Criteria for similarity:</b> AA (Angle-Angle), SSS, SAS.','<b>Basic Proportionality Theorem (Thales):</b> Line parallel to one side of triangle divides other two sides proportionally.','<b>Converse of BPT:</b> If a line divides two sides proportionally, it is parallel to third side.','<b>Area of similar triangles:</b> Ratio of areas = square of ratio of corresponding sides.','<b>Pythagoras theorem:</b> In right triangle, hypotenuse² = sum of squares of other two sides.'],
+    'Coordinate Geometry': ['<b>Distance formula:</b> d = √[(x₂−x₁)² + (y₂−y₁)²].','<b>Section formula:</b> Point dividing (x₁,y₁) and (x₂,y₂) in ratio m:n = [(mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n)].','<b>Midpoint formula:</b> [(x₁+x₂)/2, (y₁+y₂)/2].','<b>Area of triangle:</b> ½|x₁(y₂−y₃) + x₂(y₃−y₁) + x₃(y₁−y₂)|.','Points are collinear if area of triangle formed = 0.'],
+    'Introduction to Trigonometry': ['<b>Trigonometric ratios:</b> sin θ = opp/hyp; cos θ = adj/hyp; tan θ = opp/adj.','cosec θ = 1/sin θ; sec θ = 1/cos θ; cot θ = 1/tan θ.','<b>Identity 1:</b> sin²θ + cos²θ = 1.','<b>Identity 2:</b> 1 + tan²θ = sec²θ.','<b>Identity 3:</b> 1 + cot²θ = cosec²θ.','<b>Values:</b> sin 30°=½; cos 30°=√3/2; tan 30°=1/√3; sin 45°=cos 45°=1/√2; sin 60°=√3/2; cos 60°=½; sin 90°=1; cos 90°=0.'],
+    'Some Applications of Trigonometry': ['<b>Angle of elevation:</b> Angle formed by line of sight with horizontal when looking UP.','<b>Angle of depression:</b> Angle formed by line of sight with horizontal when looking DOWN.','In right triangle: tan θ = height / base.','Height of tower = distance × tan(angle of elevation).','Problems involve buildings, towers, lighthouses, mountains — use trigonometric ratios.'],
+    'Circles': ['<b>Tangent to circle:</b> Line touching circle at exactly one point.','Tangent at any point is perpendicular to radius through that point.','<b>Lengths of tangents:</b> From an external point, two tangents are equal in length.','Number of tangents from a point: Outside circle = 2; On circle = 1; Inside circle = 0.'],
+    'Constructions': ['<b>Division of line segment:</b> Divide AB in ratio m:n using construction.','<b>Tangent to circle:</b> At a given point on circle; from external point.','<b>Similar triangle:</b> Construct triangle similar to given triangle with given scale factor.','Always use only compass and ruler.'],
+    'Areas Related to Circles': ['<b>Circumference:</b> 2πr. <b>Area of circle:</b> πr².','<b>Length of arc:</b> (θ/360) × 2πr.','<b>Area of sector:</b> (θ/360) × πr².','<b>Area of segment:</b> Area of sector − Area of triangle.','<b>Area of ring:</b> π(R² − r²) where R = outer radius, r = inner radius.'],
+    'Surface Areas and Volumes': ['<b>Cuboid:</b> TSA = 2(lb+bh+hl); Volume = lbh.','<b>Cube:</b> TSA = 6a²; Volume = a³.','<b>Cylinder:</b> CSA = 2πrh; TSA = 2πr(r+h); Volume = πr²h.','<b>Cone:</b> CSA = πrl; TSA = πr(r+l); Volume = ⅓πr²h. Slant height l = √(r²+h²).','<b>Sphere:</b> SA = 4πr²; Volume = (4/3)πr³.','<b>Hemisphere:</b> CSA = 2πr²; TSA = 3πr²; Volume = (2/3)πr³.','Combination of solids: Add/subtract volumes and surface areas as needed.'],
+    'Statistics': ['<b>Mean (direct method):</b> x̄ = Σfᵢxᵢ / Σfᵢ.','<b>Mean (assumed mean method):</b> x̄ = a + Σfᵢdᵢ / Σfᵢ where dᵢ = xᵢ − a.','<b>Mean (step deviation):</b> x̄ = a + (Σfᵢuᵢ / Σfᵢ) × h.','<b>Median:</b> l + [(n/2 − cf) / f] × h.','<b>Mode:</b> l + [(f₁ − f₀) / (2f₁ − f₀ − f₂)] × h.','<b>Empirical relation:</b> Mode = 3 Median − 2 Mean.','<b>Ogive (cumulative frequency graph):</b> Less than ogive and more than ogive; their intersection gives median.'],
+    'Probability': ['<b>Theoretical probability:</b> P(E) = Number of favourable outcomes / Total number of equally likely outcomes.','0 ≤ P(E) ≤ 1.','P(Ē) = 1 − P(E) (complementary events).','<b>Sure event:</b> P = 1. <b>Impossible event:</b> P = 0.','For a coin: P(head) = P(tail) = ½.','For a die: P(any number) = 1/6.','For a deck of 52 cards: P(any suit) = 13/52 = ¼; P(any face card) = 12/52 = 3/13.']
+  };
+
+  function cpReadNotes(chapterName) {
+    const points = notesDB[chapterName];
+    const page = document.getElementById('notesPage');
+    const title = document.getElementById('notesPageTitle');
+    const body = document.getElementById('notesPageBody');
+
+    title.textContent = chapterName;
+
+    if (!points) {
+      body.innerHTML = `
+        <div style="text-align:center;padding:60px 20px;">
+          <div style="font-size:3.5rem;margin-bottom:16px;">🚀</div>
+          <p style="color:#4B5563;font-size:1rem;">Ye chapter ke notes jald aayenge!<br/><br/>
+          Telegram join karo updates ke liye:<br/>
+          <a href="https://t.me/kineticwala" target="_blank" style="color:#2563EB;font-weight:600;">t.me/kineticwala</a></p>
+        </div>`;
+    } else {
+      // Find chapter number from classData
+      const subjectData = classData[currentClass] ? classData[currentClass][currentSubject] : null;
+      const chNum = subjectData ? subjectData.indexOf(chapterName) + 1 : '';
+
+      body.innerHTML = `
+        <div style="border-bottom:2px solid #e5e7eb;padding-bottom:18px;margin-bottom:26px;text-align:center;">
+          <div style="font-size:.85rem;color:#6B7280;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;font-weight:700;">CHAPTER – ${chNum}</div>
+          <div style="font-size:1.25rem;font-weight:700;color:#111827;font-family:'Sora',sans-serif;text-decoration:underline;">${chapterName}</div>
+        </div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:0.95rem;color:#1a1a1a;line-height:1.85;">
+          ${points.map(p => {
+            if (/^\s*\([ivx]+\)/i.test(p)) {
+              return `<div style="padding:4px 0 4px 32px;color:#374151;">${p}</div>`;
+            }
+            return `<p style="margin:0 0 14px 0;">${p}</p>`;
+          }).join('')}
+        </div>`;
+    }
+
+    page.style.display = 'block';
+    page.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNotesModal() {
+    document.getElementById('notesPage').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function cpShowCbqForm() {
+    document.getElementById('cpCbqForm').style.display = 'block';
+    document.getElementById('cpBuyBtn').style.display = 'none';
+  }
+
+  async function cpSendCbq() {
+    const msg = document.getElementById('cpCbqMsg').value.trim();
+    if (!msg) { alert('⚠️ Pehle message likho!'); return; }
+    const btn = document.querySelector('#cpCbqSection button:last-child');
+    btn.textContent = '⏳ Bhej raha hun...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/ash.business7953@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: '💳 CBQ Book Order — Class ' + currentClass,
+          Class: 'Class ' + currentClass,
+          Message: msg,
+          _template: 'table'
+        })
+      });
+      const data = await res.json();
+      if (data.success === 'true' || data.success === true) {
+        document.getElementById('cpCbqForm').innerHTML = '<div style="text-align:center;padding:20px 0;"><div style="font-size:3rem;margin-bottom:12px;">🎉</div><h3 style="font-family:Sora,sans-serif;color:#1E3A8A;margin-bottom:8px;">Message Pohonch Gaya!</h3><p style="color:#4B5563;font-size:.9rem;">Hum jald hi reply karenge aur CBQ book bhejenge!</p></div>';
+      } else { throw new Error(); }
+    } catch(e) {
+      btn.textContent = '📨 Message Bhejo';
+      btn.disabled = false;
+      alert('❌ Problem hui! Telegram pe contact karo: t.me/kineticwala');
+    }
+  }
+
+</script>
+
+<!-- Full Screen Notes Page -->
+<div id="notesPage" style="display:none;position:fixed;inset:0;z-index:9999;background:#f5f5f0;overflow-y:auto;">
+  <!-- Top Bar -->
+  <div style="position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:12px;padding:14px 18px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+    <button onclick="closeNotesModal()" style="background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;justify-content:center;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    </button>
+    <div id="notesPageTitle" style="font-family:'Sora',sans-serif;font-weight:700;font-size:1.1rem;color:#111827;flex:1;"></div>
+  </div>
+
+  <!-- Notes Content Area -->
+  <div style="max-width:700px;margin:0 auto;padding:0 0 40px 0;">
+    <div id="notesPageBody" style="background:#fff;padding:28px 22px;font-family:'DM Sans',sans-serif;font-size:0.93rem;color:#1a1a1a;line-height:1.8;"></div>
+  </div>
+</div>
+
+</body>
+</html>
